@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Progress | The Learning Hub</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link
+        rel="stylesheet"
+        href="../assets/css/style.css">
+
+    <style>
+
+        body {
+            background: #f7faf8;
+        }
+
+        .progress-page {
+            padding: 40px 0;
+            min-height: 85vh;
+        }
+
+        .page-header {
+            background: #ffffff;
+            border: 1px solid #e3ebe6;
+            border-radius: 18px;
+            padding: 30px;
+            margin-bottom: 25px;
+        }
+
+        .page-title {
+            color: #102a43;
+            font-weight: 700;
+        }
+
+        .page-subtitle {
+            color: #6c757d;
+        }
+
+        .progress-card {
+            background: #ffffff;
+            border: 1px solid #e3ebe6;
+            border-radius: 18px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .progress-card h5 {
+            color: #102a43;
+            font-weight: 700;
+        }
+
+        .stat-box {
+            background: #f7faf8;
+            border: 1px solid #e3ebe6;
+            border-radius: 14px;
+            padding: 20px;
+            text-align: center;
+            height: 100%;
+        }
+
+        .stat-icon {
+            width: 45px;
+            height: 45px;
+            margin: 0 auto 10px;
+            background: #e8f5ee;
+            color: #198754;
+            border-radius: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .stat-number {
+            color: #102a43;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .stat-label {
+            color: #6c757d;
+            font-size: 0.85rem;
+        }
+
+        .course-progress {
+            padding: 16px 0;
+            border-bottom: 1px solid #edf1ee;
+        }
+
+        .course-progress:last-child {
+            border-bottom: none;
+        }
+
+        .course-name {
+            color: #263238;
+            font-weight: 600;
+        }
+
+        .course-meta {
+            color: #6c757d;
+            font-size: 0.82rem;
+        }
+
+        .progress {
+            height: 9px;
+            background: #e8eeea;
+            border-radius: 10px;
+        }
+
+        .progress-bar {
+            background: #198754;
+            border-radius: 10px;
+        }
+
+        .percentage {
+            color: #198754;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .activity-item {
+            display: flex;
+            gap: 13px;
+            padding: 14px 0;
+            border-bottom: 1px solid #edf1ee;
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-icon {
+            width: 38px;
+            height: 38px;
+            min-width: 38px;
+            background: #e8f5ee;
+            color: #198754;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .activity-title {
+            color: #263238;
+            font-weight: 600;
+        }
+
+        .activity-time {
+            color: #8a969c;
+            font-size: 0.78rem;
+        }
+
+        .streak-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #198754;
+        }
+
+        .streak-label {
+            color: #6c757d;
+        }
+
+        .day-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 5px;
+            margin-top: 20px;
+        }
+
+        .day {
+            text-align: center;
+            flex: 1;
+        }
+
+        .day-circle {
+            width: 32px;
+            height: 32px;
+            margin: 5px auto;
+            border-radius: 50%;
+            background: #e8eeea;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-size: 0.75rem;
+        }
+
+        .day-circle.completed {
+            background: #198754;
+            color: white;
+        }
+
+        .day-name {
+            color: #8a969c;
+            font-size: 0.72rem;
+        }
+
+        .score {
+            color: #198754;
+            font-weight: 700;
+        }
+
+        .achievement {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 13px 0;
+            border-bottom: 1px solid #edf1ee;
+        }
+
+        .achievement:last-child {
+            border-bottom: none;
+        }
+
+        .achievement-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #e8f5ee;
+            color: #198754;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .achievement-title {
+            color: #263238;
+            font-weight: 600;
+        }
+
+        .achievement-description {
+            color: #6c757d;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+
+            .progress-page {
+                padding: 25px 15px;
+            }
+
+            .page-header {
+                padding: 22px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     NAVBAR
+================================================== -->
+
+<nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
+
+    <div class="container">
+
+        <a href="progress.html">
+    <i class="fas fa-chart-line me-1"></i>
+    My Progress
+</a>
+
+        <a
+            class="navbar-brand"
+            href="../index.html">
+
+            <i class="fas fa-graduation-cap text-success"></i>
+
+            The Learning Hub
+
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#progressNavbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div
+            class="collapse navbar-collapse"
+            id="progressNavbar">
+
+
+            <ul class="navbar-nav mx-auto">
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="dashboard.html">
+
+                        <i class="fas fa-chart-pie me-1"></i>
+
+                        Dashboard
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="courses.html">
+
+                        <i class="fas fa-book-open me-1"></i>
+
+                        Courses
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="notes.html">
+
+                        <i class="fas fa-note-sticky me-1"></i>
+
+                        Notes
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="quiz.html">
+
+                        <i class="fas fa-clipboard-question me-1"></i>
+
+                        Quiz
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="ai-assistant.html">
+
+                        <i class="fas fa-robot me-1"></i>
+
+                        AI Assistant
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+
+            <a
+                href="profile.html"
+                class="btn btn-outline-success">
+
+                <i class="fas fa-user me-1"></i>
+
+                Profile
+
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- ==================================================
+     MAIN
+================================================== -->
+
+<main class="progress-page">
+
+    <div class="container">
+
+
+        <!-- ============================================
+             HEADER
+        ============================================= -->
+
+        <div class="page-header">
+
+            <div
+                class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+
+                <div>
+
+                    <h1 class="page-title mb-2">
+
+                        My Learning Progress
+
+                    </h1>
+
+                    <p class="page-subtitle mb-0">
+
+                        Track your learning journey,
+                        achievements and performance.
+
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="dashboard.html"
+                    class="btn btn-outline-success">
+
+                    <i class="fas fa-arrow-left me-1"></i>
+
+                    Dashboard
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ============================================
+             STATISTICS
+        ============================================= -->
+
+        <div class="row g-3 mb-4">
+
+
+            <div class="col-6 col-lg-3">
+
+                <div class="stat-box">
+
+                    <div class="stat-icon">
+
+                        <i class="fas fa-book-open"></i>
+
+                    </div>
+
+                    <div class="stat-number">
+
+                        68%
+
+                    </div>
+
+                    <div class="stat-label">
+
+                        Overall Progress
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-lg-3">
+
+                <div class="stat-box">
+
+                    <div class="stat-icon">
+
+                        <i class="fas fa-clock"></i>
+
+                    </div>
+
+                    <div class="stat-number">
+
+                        42h
+
+                    </div>
+
+                    <div class="stat-label">
+
+                        Study Time
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-lg-3">
+
+                <div class="stat-box">
+
+                    <div class="stat-icon">
+
+                        <i class="fas fa-trophy"></i>
+
+                    </div>
+
+                    <div class="stat-number">
+
+                        86%
+
+                    </div>
+
+                    <div class="stat-label">
+
+                        Quiz Average
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-lg-3">
+
+                <div class="stat-box">
+
+                    <div class="stat-icon">
+
+                        <i class="fas fa-fire"></i>
+
+                    </div>
+
+                    <div class="stat-number">
+
+                        7
+
+                    </div>
+
+                    <div class="stat-label">
+
+                        Day Streak
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="row g-4">
+
+
+            <!-- ========================================
+                 LEFT COLUMN
+            ========================================= -->
+
+            <div class="col-lg-8">
+
+
+                <!-- Course Progress -->
+
+                <div class="progress-card">
+
+
+                    <h5 class="mb-3">
+
+                        <i class="fas fa-chart-simple text-success me-2"></i>
+
+                        Course Progress
+
+                    </h5>
+
+
+                    <!-- Java -->
+
+                    <div class="course-progress">
+
+                        <div class="d-flex justify-content-between mb-2">
+
+                            <div>
+
+                                <div class="course-name">
+
+                                    Java Programming
+
+                                </div>
+
+                                <div class="course-meta">
+
+                                    18 of 25 lessons completed
+
+                                </div>
+
+                            </div>
+
+                            <div class="percentage">
+
+                                72%
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:72%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Python -->
+
+                    <div class="course-progress">
+
+                        <div class="d-flex justify-content-between mb-2">
+
+                            <div>
+
+                                <div class="course-name">
+
+                                    Python Programming
+
+                                </div>
+
+                                <div class="course-meta">
+
+                                    15 of 20 lessons completed
+
+                                </div>
+
+                            </div>
+
+                            <div class="percentage">
+
+                                75%
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:75%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Web Development -->
+
+                    <div class="course-progress">
+
+                        <div class="d-flex justify-content-between mb-2">
+
+                            <div>
+
+                                <div class="course-name">
+
+                                    Web Development
+
+                                </div>
+
+                                <div class="course-meta">
+
+                                    12 of 20 lessons completed
+
+                                </div>
+
+                            </div>
+
+                            <div class="percentage">
+
+                                60%
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:60%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- DBMS -->
+
+                    <div class="course-progress">
+
+                        <div class="d-flex justify-content-between mb-2">
+
+                            <div>
+
+                                <div class="course-name">
+
+                                    Database Management
+
+                                </div>
+
+                                <div class="course-meta">
+
+                                    10 of 18 lessons completed
+
+                                </div>
+
+                            </div>
+
+                            <div class="percentage">
+
+                                56%
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:56%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- AI -->
+
+                    <div class="course-progress">
+
+                        <div class="d-flex justify-content-between mb-2">
+
+                            <div>
+
+                                <div class="course-name">
+
+                                    Artificial Intelligence
+
+                                </div>
+
+                                <div class="course-meta">
+
+                                    8 of 15 lessons completed
+
+                                </div>
+
+                            </div>
+
+                            <div class="percentage">
+
+                                53%
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:53%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Quiz Performance -->
+
+                <div class="progress-card">
+
+
+                    <h5 class="mb-3">
+
+                        <i class="fas fa-clipboard-check text-success me-2"></i>
+
+                        Recent Quiz Performance
+
+                    </h5>
+
+
+                    <div class="table-responsive">
+
+                        <table class="table align-middle">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Quiz</th>
+
+                                    <th>Score</th>
+
+                                    <th>Result</th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+                                        Java Basics
+                                    </td>
+
+                                    <td class="score">
+                                        92%
+                                    </td>
+
+                                    <td>
+
+                                        <span class="badge text-bg-success">
+                                            Excellent
+                                        </span>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        HTML & CSS
+                                    </td>
+
+                                    <td class="score">
+                                        88%
+                                    </td>
+
+                                    <td>
+
+                                        <span class="badge text-bg-success">
+                                            Excellent
+                                        </span>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        SQL Basics
+                                    </td>
+
+                                    <td class="score">
+                                        82%
+                                    </td>
+
+                                    <td>
+
+                                        <span class="badge text-bg-success">
+                                            Good
+                                        </span>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        Python Fundamentals
+                                    </td>
+
+                                    <td class="score">
+                                        79%
+                                    </td>
+
+                                    <td>
+
+                                        <span class="badge text-bg-warning">
+                                            Good
+                                        </span>
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Recent Activity -->
+
+                <div class="progress-card">
+
+
+                    <h5 class="mb-3">
+
+                        <i class="fas fa-clock-rotate-left text-success me-2"></i>
+
+                        Recent Activity
+
+                    </h5>
+
+
+                    <div class="activity-item">
+
+
+                        <div class="activity-icon">
+
+                            <i class="fas fa-check"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <div class="activity-title">
+
+                                Completed Java Inheritance
+
+                            </div>
+
+                            <div class="activity-time">
+
+                                Today, 9:15 AM
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="activity-item">
+
+
+                        <div class="activity-icon">
+
+                            <i class="fas fa-trophy"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <div class="activity-title">
+
+                                Scored 92% in Java Basics Quiz
+
+                            </div>
+
+                            <div class="activity-time">
+
+                                Yesterday
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="activity-item">
+
+
+                        <div class="activity-icon">
+
+                            <i class="fas fa-note-sticky"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <div class="activity-title">
+
+                                Created a new SQL note
+
+                            </div>
+
+                            <div class="activity-time">
+
+                                Yesterday
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="activity-item">
+
+
+                        <div class="activity-icon">
+
+                            <i class="fas fa-book"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <div class="activity-title">
+
+                                Started Artificial Intelligence
+
+                            </div>
+
+                            <div class="activity-time">
+
+                                2 days ago
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ========================================
+                 RIGHT COLUMN
+            ========================================= -->
+
+            <div class="col-lg-4">
+
+
+                <!-- Study Streak -->
+
+                <div class="progress-card text-center">
+
+
+                    <h5>
+
+                        <i class="fas fa-fire text-success me-2"></i>
+
+                        Study Streak
+
+                    </h5>
+
+
+                    <div class="streak-number">
+
+                        7
+
+                    </div>
+
+
+                    <div class="streak-label">
+
+                        Days in a row
+
+                    </div>
+
+
+                    <div class="day-row">
+
+
+                        <div class="day">
+
+                            <div class="day-name">
+                                Mon
+                            </div>
+
+                            <div class="day-circle completed">
+
+                                <i class="fas fa-check"></i>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="day">
+
+                            <div class="day-name">
+                                Tue
+                            </div>
+
+                            <div class="day-circle completed">
+
+                                <i class="fas fa-check"></i>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="day">
+
+                            <div class="day-name">
+                                Wed
+                            </div>
+
+                            <div class="day-circle completed">
+
+                                <i class="fas fa-check"></i>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="day">
+
+                            <div class="day-name">
+                                Thu
+                            </div>
+
+                            <div class="day-circle completed">
+
+                                <i class="fas fa-check"></i>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="day">
+
+                            <div class="day-name">
+                                Fri
+                            </div>
+
+                            <div class="day-circle completed">
+
+                                <i class="fas fa-check"></i>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="day">
+
+                            <div class="day-name">
+                                Sat
+                            </div>
+
+                            <div class="day-circle completed">
+
+                                <i class="fas fa-check"></i>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="day">
+
+                            <div class="day-name">
+                                Sun
+                            </div>
+
+                            <div class="day-circle completed">
+
+                                <i class="fas fa-check"></i>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Achievements -->
+
+                <div class="progress-card">
+
+
+                    <h5 class="mb-3">
+
+                        <i class="fas fa-medal text-success me-2"></i>
+
+                        Achievements
+
+                    </h5>
+
+
+                    <div class="achievement">
+
+
+                        <div class="achievement-icon">
+
+                            <i class="fas fa-fire"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <div class="achievement-title">
+
+                                7 Day Streak
+
+                            </div>
+
+                            <div class="achievement-description">
+
+                                Studied for 7 consecutive days.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="achievement">
+
+
+                        <div class="achievement-icon">
+
+                            <i class="fas fa-star"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <div class="achievement-title">
+
+                                Quiz Master
+
+                            </div>
+
+                            <div class="achievement-description">
+
+                                Scored above 90% in a quiz.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="achievement">
+
+
+                        <div class="achievement-icon">
+
+                            <i class="fas fa-book-open"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <div class="achievement-title">
+
+                                Fast Learner
+
+                            </div>
+
+                            <div class="achievement-description">
+
+                                Completed 20 lessons.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="achievement">
+
+
+                        <div class="achievement-icon">
+
+                            <i class="fas fa-award"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <div class="achievement-title">
+
+                                Consistent Student
+
+                            </div>
+
+                            <div class="achievement-description">
+
+                                Completed learning activities regularly.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Goal -->
+
+                <div class="progress-card">
+
+
+                    <h5 class="mb-3">
+
+                        <i class="fas fa-bullseye text-success me-2"></i>
+
+                        Monthly Goal
+
+                    </h5>
+
+
+                    <div class="d-flex justify-content-between mb-2">
+
+                        <span class="text-muted">
+
+                            Study Target
+
+                        </span>
+
+                        <strong>
+
+                            30 / 40 hours
+
+                        </strong>
+
+                    </div>
+
+
+                    <div class="progress mb-3">
+
+                        <div
+                            class="progress-bar"
+                            style="width:75%">
+                        </div>
+
+                    </div>
+
+
+                    <p class="text-muted small mb-0">
+
+                        You're 75% toward your monthly
+                        study goal. Keep going!
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
+<footer class="pt-4 pb-3">
+
+    <div class="container">
+
+        <hr>
+
+        <p class="text-center mb-0">
+
+            © 2026 The Learning Hub.
+            All Rights Reserved.
+
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- Bootstrap -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,2169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="AI Study Assistant | The Learning Hub">
+
+    <title>AI Assistant | The Learning Hub</title>
+
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+
+    <!-- Main CSS -->
+    <link
+        rel="stylesheet"
+        href="../assets/css/style.css">
+
+
+    <style>
+
+        body {
+            background: #f7faf8;
+        }
+
+
+        /* ==========================================
+           NAVBAR
+        ========================================== */
+
+        .ai-navbar {
+
+            background: #ffffff;
+
+            border-bottom: 1px solid #e3ebe6;
+
+        }
+
+
+        /* ==========================================
+           PAGE
+        ========================================== */
+
+        .ai-page {
+
+            min-height: 85vh;
+
+            padding: 40px 0;
+
+        }
+
+
+        .page-title {
+
+            color: #102a43;
+
+            font-weight: 700;
+
+        }
+
+
+        .page-subtitle {
+
+            color: #6c757d;
+
+        }
+
+
+        /* ==========================================
+           AI HEADER
+        ========================================== */
+
+        .ai-header {
+
+            background: #ffffff;
+
+            border: 1px solid #e3ebe6;
+
+            border-radius: 18px;
+
+            padding: 30px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .ai-icon {
+
+            width: 65px;
+
+            height: 65px;
+
+            background: #e8f5ee;
+
+            color: #198754;
+
+            border-radius: 15px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 1.7rem;
+
+        }
+
+
+        .online-dot {
+
+            width: 9px;
+
+            height: 9px;
+
+            background: #198754;
+
+            border-radius: 50%;
+
+            display: inline-block;
+
+            margin-right: 5px;
+
+        }
+
+
+        /* ==========================================
+           CHAT CARD
+        ========================================== */
+
+        .chat-card {
+
+            background: #ffffff;
+
+            border: 1px solid #e3ebe6;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+        }
+
+
+        .chat-header {
+
+            padding: 18px 22px;
+
+            border-bottom: 1px solid #e3ebe6;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+
+        .chat-header-title {
+
+            color: #102a43;
+
+            font-weight: 700;
+
+        }
+
+
+        .chat-status {
+
+            color: #198754;
+
+            font-size: 0.85rem;
+
+        }
+
+
+        /* ==========================================
+           CHAT BODY
+        ========================================== */
+
+        .chat-body {
+
+            height: 500px;
+
+            overflow-y: auto;
+
+            padding: 25px;
+
+            background: #f9fbfa;
+
+        }
+
+
+        .message {
+
+            display: flex;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .message.user {
+
+            justify-content: flex-end;
+
+        }
+
+
+        .message-avatar {
+
+            width: 38px;
+
+            height: 38px;
+
+            min-width: 38px;
+
+            border-radius: 50%;
+
+            background: #e8f5ee;
+
+            color: #198754;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-right: 10px;
+
+        }
+
+
+        .message.user .message-avatar {
+
+            order: 2;
+
+            margin-left: 10px;
+
+            margin-right: 0;
+
+            background: #198754;
+
+            color: #ffffff;
+
+        }
+
+
+        .message-content {
+
+            max-width: 75%;
+
+        }
+
+
+        .message-bubble {
+
+            padding: 13px 16px;
+
+            border-radius: 14px;
+
+            background: #ffffff;
+
+            border: 1px solid #e3ebe6;
+
+            color: #263238;
+
+            line-height: 1.6;
+
+        }
+
+
+        .message.user .message-bubble {
+
+            background: #198754;
+
+            color: #ffffff;
+
+            border: none;
+
+            border-bottom-right-radius: 4px;
+
+        }
+
+
+        .message.ai .message-bubble {
+
+            border-bottom-left-radius: 4px;
+
+        }
+
+
+        .message-time {
+
+            font-size: 0.72rem;
+
+            color: #8a969c;
+
+            margin-top: 5px;
+
+        }
+
+
+        .message.user .message-time {
+
+            text-align: right;
+
+        }
+
+
+        /* ==========================================
+           QUICK QUESTIONS
+        ========================================== */
+
+        .quick-questions {
+
+            padding: 15px 20px;
+
+            border-top: 1px solid #e3ebe6;
+
+            background: #ffffff;
+
+        }
+
+
+        .quick-title {
+
+            color: #6c757d;
+
+            font-size: 0.85rem;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .quick-btn {
+
+            background: #f7faf8;
+
+            border: 1px solid #dce6e0;
+
+            color: #263238;
+
+            border-radius: 20px;
+
+            padding: 7px 13px;
+
+            font-size: 0.82rem;
+
+            margin-right: 5px;
+
+            margin-bottom: 5px;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .quick-btn:hover {
+
+            background: #e8f5ee;
+
+            border-color: #198754;
+
+            color: #198754;
+
+        }
+
+
+        /* ==========================================
+           CHAT INPUT
+        ========================================== */
+
+        .chat-input-area {
+
+            padding: 18px 20px;
+
+            border-top: 1px solid #e3ebe6;
+
+            background: #ffffff;
+
+        }
+
+
+        .chat-input-wrapper {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            border: 1px solid #dce6e0;
+
+            border-radius: 12px;
+
+            padding: 5px 7px 5px 15px;
+
+            background: #ffffff;
+
+        }
+
+
+        .chat-input {
+
+            border: none;
+
+            outline: none;
+
+            flex: 1;
+
+            padding: 10px 0;
+
+            color: #263238;
+
+        }
+
+
+        .chat-input::placeholder {
+
+            color: #9aa5aa;
+
+        }
+
+
+        .send-btn {
+
+            width: 42px;
+
+            height: 42px;
+
+            border-radius: 10px;
+
+            border: none;
+
+            background: #198754;
+
+            color: #ffffff;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .send-btn:hover {
+
+            background: #157347;
+
+        }
+
+
+        /* ==========================================
+           RIGHT SIDEBAR
+        ========================================== */
+
+        .assistant-card {
+
+            background: #ffffff;
+
+            border: 1px solid #e3ebe6;
+
+            border-radius: 18px;
+
+            padding: 25px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .assistant-card h5 {
+
+            color: #102a43;
+
+            font-weight: 700;
+
+        }
+
+
+        .feature-item {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 12px;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .feature-icon {
+
+            width: 38px;
+
+            height: 38px;
+
+            min-width: 38px;
+
+            border-radius: 9px;
+
+            background: #e8f5ee;
+
+            color: #198754;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+        }
+
+
+        .feature-item h6 {
+
+            margin-bottom: 3px;
+
+            color: #263238;
+
+        }
+
+
+        .feature-item p {
+
+            color: #6c757d;
+
+            font-size: 0.82rem;
+
+            margin: 0;
+
+        }
+
+
+        /* ==========================================
+           STUDY TOPICS
+        ========================================== */
+
+        .topic-btn {
+
+            display: block;
+
+            width: 100%;
+
+            text-align: left;
+
+            background: #f7faf8;
+
+            border: 1px solid #e3ebe6;
+
+            border-radius: 9px;
+
+            padding: 11px 13px;
+
+            margin-bottom: 8px;
+
+            color: #263238;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .topic-btn:hover {
+
+            border-color: #198754;
+
+            background: #e8f5ee;
+
+            color: #198754;
+
+        }
+
+
+        /* ==========================================
+           TYPING
+        ========================================== */
+
+        .typing {
+
+            display: none;
+
+            align-items: center;
+
+            gap: 5px;
+
+            padding: 5px 0;
+
+        }
+
+
+        .typing span {
+
+            width: 7px;
+
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #198754;
+
+            animation: typing 1.2s infinite;
+
+        }
+
+
+        .typing span:nth-child(2) {
+
+            animation-delay: 0.2s;
+
+        }
+
+
+        .typing span:nth-child(3) {
+
+            animation-delay: 0.4s;
+
+        }
+
+
+        @keyframes typing {
+
+            0%, 60%, 100% {
+
+                transform: translateY(0);
+
+                opacity: 0.4;
+
+            }
+
+            30% {
+
+                transform: translateY(-5px);
+
+                opacity: 1;
+
+            }
+
+        }
+
+
+        /* ==========================================
+           MOBILE
+        ========================================== */
+
+        @media (max-width: 768px) {
+
+            .ai-page {
+
+                padding: 25px 15px;
+
+            }
+
+
+            .chat-body {
+
+                height: 450px;
+
+                padding: 18px;
+
+            }
+
+
+            .message-content {
+
+                max-width: 85%;
+
+            }
+
+
+            .ai-header {
+
+                padding: 22px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     NAVBAR
+================================================== -->
+
+<nav class="navbar navbar-expand-lg ai-navbar sticky-top">
+
+    <div class="container">
+
+
+        <a
+            class="navbar-brand"
+            href="../index.html">
+
+            <i class="fas fa-graduation-cap"></i>
+
+            The Learning Hub
+
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#aiNavbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div
+            class="collapse navbar-collapse"
+            id="aiNavbar">
+
+
+            <ul class="navbar-nav mx-auto">
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="dashboard.html">
+
+                        <i class="fas fa-chart-pie me-1"></i>
+
+                        Dashboard
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="courses.html">
+
+                        <i class="fas fa-book-open me-1"></i>
+
+                        Courses
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="notes.html">
+
+                        <i class="fas fa-note-sticky me-1"></i>
+
+                        Notes
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="quiz.html">
+
+                        <i class="fas fa-clipboard-question me-1"></i>
+
+                        Quiz
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link active"
+                        href="ai-assistant.html">
+
+                        <i class="fas fa-robot me-1"></i>
+
+                        AI Assistant
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+
+            <a
+                href="dashboard.html"
+                class="btn btn-outline-success">
+
+                <i class="fas fa-chart-pie me-1"></i>
+
+                Dashboard
+
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- ==================================================
+     MAIN
+================================================== -->
+
+<main class="ai-page">
+
+    <div class="container">
+
+
+        <!-- ============================================
+             HEADER
+        ============================================= -->
+
+        <div class="ai-header">
+
+
+            <div class="d-flex align-items-center gap-3">
+
+
+                <div class="ai-icon">
+
+                    <i class="fas fa-robot"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h1 class="page-title mb-1">
+
+                        AI Study Assistant
+
+                    </h1>
+
+
+                    <p class="page-subtitle mb-0">
+
+                        Get simple explanations,
+                        study guidance and programming help.
+
+                    </p>
+
+
+                    <div class="chat-status mt-2">
+
+                        <span class="online-dot"></span>
+
+                        Assistant Online
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ============================================
+             CONTENT
+        ============================================= -->
+
+        <div class="row g-4">
+
+
+            <!-- ========================================
+                 CHAT
+            ========================================= -->
+
+
+            <div class="col-lg-8">
+
+
+                <div class="chat-card">
+
+
+                    <!-- Chat Header -->
+
+                    <div class="chat-header">
+
+
+                        <div>
+
+                            <div class="chat-header-title">
+
+                                <i class="fas fa-sparkles text-success me-2"></i>
+
+                                Learning Assistant
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            class="btn btn-sm btn-outline-secondary"
+                            onclick="clearChat()">
+
+                            <i class="fas fa-trash me-1"></i>
+
+                            Clear
+
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- Chat Body -->
+
+                    <div
+                        id="chatBody"
+                        class="chat-body">
+
+
+                        <!-- Initial AI Message -->
+
+                        <div class="message ai">
+
+
+                            <div class="message-avatar">
+
+                                <i class="fas fa-robot"></i>
+
+                            </div>
+
+
+                            <div class="message-content">
+
+
+                                <div class="message-bubble">
+
+                                    Hello! 👋
+
+                                    <br><br>
+
+                                    I'm your AI Study Assistant
+                                    from <strong>The Learning Hub</strong>.
+
+                                    <br><br>
+
+                                    You can ask me to explain
+                                    programming concepts,
+                                    database topics, AI concepts,
+                                    web development and more.
+
+                                </div>
+
+
+                                <div class="message-time">
+
+                                    AI Assistant
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Typing Indicator -->
+
+                        <div
+                            id="typingMessage"
+                            class="message ai">
+
+
+                            <div class="message-avatar">
+
+                                <i class="fas fa-robot"></i>
+
+                            </div>
+
+
+                            <div class="message-content">
+
+
+                                <div class="message-bubble">
+
+                                    <div class="typing"
+                                         id="typing">
+
+                                        <span></span>
+
+                                        <span></span>
+
+                                        <span></span>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Quick Questions -->
+
+                    <div class="quick-questions">
+
+
+                        <div class="quick-title">
+
+                            <i class="fas fa-lightbulb me-1"></i>
+
+                            Try asking:
+
+                        </div>
+
+
+                        <button
+                            class="quick-btn"
+                            onclick="askQuestion(
+                                'Explain object oriented programming simply'
+                            )">
+
+                            Explain OOP simply
+
+                        </button>
+
+
+                        <button
+                            class="quick-btn"
+                            onclick="askQuestion(
+                                'What is a primary key in SQL?'
+                            )">
+
+                            What is a primary key?
+
+                        </button>
+
+
+                        <button
+                            class="quick-btn"
+                            onclick="askQuestion(
+                                'Explain artificial intelligence'
+                            )">
+
+                            Explain AI
+
+                        </button>
+
+
+                        <button
+                            class="quick-btn"
+                            onclick="askQuestion(
+                                'What is HTML?'
+                            )">
+
+                            What is HTML?
+
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- Input -->
+
+                    <div class="chat-input-area">
+
+
+                        <div class="chat-input-wrapper">
+
+
+                            <input
+                                type="text"
+                                id="userInput"
+                                class="chat-input"
+                                placeholder="Ask something about your studies..."
+                                autocomplete="off">
+
+
+                            <button
+                                class="send-btn"
+                                onclick="sendMessage()">
+
+                                <i class="fas fa-paper-plane"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <small class="text-muted">
+
+                            Press Enter to send your question.
+
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ========================================
+                 SIDEBAR
+            ========================================= -->
+
+
+            <div class="col-lg-4">
+
+
+                <!-- Features -->
+
+                <div class="assistant-card">
+
+
+                    <h5 class="mb-4">
+
+                        <i class="fas fa-wand-magic-sparkles text-success me-2"></i>
+
+                        What can I help with?
+
+                    </h5>
+
+
+                    <div class="feature-item">
+
+
+                        <div class="feature-icon">
+
+                            <i class="fas fa-book-open"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h6>
+
+                                Explain Concepts
+
+                            </h6>
+
+
+                            <p>
+
+                                Get difficult topics explained
+                                in simple language.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="feature-item">
+
+
+                        <div class="feature-icon">
+
+                            <i class="fas fa-code"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h6>
+
+                                Programming Help
+
+                            </h6>
+
+
+                            <p>
+
+                                Understand Java, Python,
+                                HTML, CSS and more.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="feature-item">
+
+
+                        <div class="feature-icon">
+
+                            <i class="fas fa-database"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h6>
+
+                                Database Help
+
+                            </h6>
+
+
+                            <p>
+
+                                Learn SQL, tables,
+                                keys and database concepts.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="feature-item mb-0">
+
+
+                        <div class="feature-icon">
+
+                            <i class="fas fa-brain"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h6>
+
+                                AI & Computer Science
+
+                            </h6>
+
+
+                            <p>
+
+                                Understand algorithms,
+                                AI and computing concepts.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Study Topics -->
+
+                <div class="assistant-card">
+
+
+                    <h5 class="mb-3">
+
+                        Study Topics
+
+                    </h5>
+
+
+                    <button
+                        class="topic-btn"
+                        onclick="askQuestion(
+                            'Explain Java inheritance simply'
+                        )">
+
+                        <i class="fab fa-java me-2 text-success"></i>
+
+                        Java Inheritance
+
+                    </button>
+
+
+                    <button
+                        class="topic-btn"
+                        onclick="askQuestion(
+                            'Explain Python lists'
+                        )">
+
+                        <i class="fab fa-python me-2 text-success"></i>
+
+                        Python Lists
+
+                    </button>
+
+
+                    <button
+                        class="topic-btn"
+                        onclick="askQuestion(
+                            'Explain CSS Flexbox'
+                        )">
+
+                        <i class="fab fa-css3-alt me-2 text-success"></i>
+
+                        CSS Flexbox
+
+                    </button>
+
+
+                    <button
+                        class="topic-btn"
+                        onclick="askQuestion(
+                            'Explain SQL joins'
+                        )">
+
+                        <i class="fas fa-database me-2 text-success"></i>
+
+                        SQL Joins
+
+                    </button>
+
+
+                    <button
+                        class="topic-btn"
+                        onclick="askQuestion(
+                            'Explain machine learning'
+                        )">
+
+                        <i class="fas fa-brain me-2 text-success"></i>
+
+                        Machine Learning
+
+                    </button>
+
+
+                    <button
+                        class="topic-btn mb-0"
+                        onclick="askQuestion(
+                            'Explain cloud computing'
+                        )">
+
+                        <i class="fas fa-cloud me-2 text-success"></i>
+
+                        Cloud Computing
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
+<footer class="pt-4 pb-3">
+
+    <div class="container">
+
+        <hr>
+
+        <div class="text-center">
+
+            <p class="mb-0">
+
+                © 2026 The Learning Hub.
+                All Rights Reserved.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- Bootstrap -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+
+<script>
+
+/* =====================================================
+   AI RESPONSES
+===================================================== */
+
+const responses = {
+
+
+    "oop":
+
+        `<strong>Object-Oriented Programming (OOP)</strong>
+        is a programming approach where programs are
+        organized using <strong>classes and objects</strong>.
+
+        <br><br>
+
+        The four main concepts of OOP are:
+
+        <br><br>
+
+        1. <strong>Encapsulation</strong> –
+        wrapping data and methods together.
+
+        <br>
+
+        2. <strong>Inheritance</strong> –
+        allowing one class to acquire properties of another.
+
+        <br>
+
+        3. <strong>Polymorphism</strong> –
+        allowing one interface to have different forms.
+
+        <br>
+
+        4. <strong>Abstraction</strong> –
+        hiding unnecessary implementation details.`,
+
+
+    "primary key":
+
+        `<strong>Primary Key</strong> is a column or
+        combination of columns that uniquely identifies
+        each record in a database table.
+
+        <br><br>
+
+        Example:
+
+        <br><br>
+
+        <code>StudentID</code> can be a primary key
+        because every student can have a unique ID.
+
+        <br><br>
+
+        A primary key cannot contain duplicate values.`,
+
+
+    "artificial intelligence":
+
+        `<strong>Artificial Intelligence (AI)</strong>
+        is a field of computer science that focuses on
+        creating systems capable of performing tasks that
+        normally require human intelligence.
+
+        <br><br>
+
+        Examples include:
+
+        <br>
+
+        • Speech recognition
+
+        <br>
+
+        • Recommendation systems
+
+        <br>
+
+        • Computer vision
+
+        <br>
+
+        • Chatbots
+
+        <br>
+
+        • Autonomous systems`,
+
+
+    "html":
+
+        `<strong>HTML</strong> stands for
+        <strong>HyperText Markup Language</strong>.
+
+        <br><br>
+
+        HTML is used to create the structure of web pages.
+
+        <br><br>
+
+        Common HTML elements include:
+
+        <br>
+
+        <code>&lt;h1&gt;</code> for headings
+
+        <br>
+
+        <code>&lt;p&gt;</code> for paragraphs
+
+        <br>
+
+        <code>&lt;a&gt;</code> for links
+
+        <br>
+
+        <code>&lt;img&gt;</code> for images`,
+
+
+    "inheritance":
+
+        `<strong>Inheritance</strong> is an OOP concept
+        where one class acquires properties and methods
+        from another class.
+
+        <br><br>
+
+        In Java, inheritance is commonly implemented
+        using the <code>extends</code> keyword.
+
+        <br><br>
+
+        Example:
+
+        <br>
+
+        <code>class Dog extends Animal</code>
+
+        <br><br>
+
+        Here, Dog inherits features from Animal.`,
+
+
+    "python lists":
+
+        `A <strong>Python list</strong> is a collection
+        that can store multiple values in a single variable.
+
+        <br><br>
+
+        Example:
+
+        <br><br>
+
+        <code>
+        fruits = ["Apple", "Banana", "Mango"]
+        </code>
+
+        <br><br>
+
+        Lists are ordered, changeable and allow duplicate
+        values.`,
+
+
+    "flexbox":
+
+        `<strong>CSS Flexbox</strong> is a layout system
+        used to arrange elements in rows or columns.
+
+        <br><br>
+
+        Example:
+
+        <br>
+
+        <code>
+        display: flex;
+        </code>
+
+        <br><br>
+
+        Flexbox makes it easier to align and distribute
+        elements inside a container.`,
+
+
+    "sql joins":
+
+        `<strong>SQL JOIN</strong> is used to combine
+        records from two or more tables based on a
+        related column.
+
+        <br><br>
+
+        Common JOIN types include:
+
+        <br>
+
+        • INNER JOIN
+
+        <br>
+
+        • LEFT JOIN
+
+        <br>
+
+        • RIGHT JOIN
+
+        <br>
+
+        • FULL JOIN`,
+
+
+    "machine learning":
+
+        `<strong>Machine Learning (ML)</strong> is a branch
+        of AI where computers learn patterns from data
+        and use those patterns to make predictions or
+        decisions.
+
+        <br><br>
+
+        Major types include:
+
+        <br>
+
+        • Supervised Learning
+
+        <br>
+
+        • Unsupervised Learning
+
+        <br>
+
+        • Reinforcement Learning`,
+
+
+    "cloud computing":
+
+        `<strong>Cloud Computing</strong> means delivering
+        computing resources such as servers, storage,
+        databases and software over the internet.
+
+        <br><br>
+
+        Major service models include:
+
+        <br>
+
+        • IaaS
+
+        <br>
+
+        • PaaS
+
+        <br>
+
+        • SaaS`
+
+};
+
+
+
+/* =====================================================
+   GET RESPONSE
+===================================================== */
+
+function getResponse(question) {
+
+
+    const text =
+        question.toLowerCase();
+
+
+    for (
+        const keyword in responses
+    ) {
+
+
+        if (
+            text.includes(keyword)
+        ) {
+
+            return responses[keyword];
+
+        }
+
+    }
+
+
+    return `
+
+        I can help you learn that topic. 📚
+
+        <br><br>
+
+        Try asking about:
+
+        <br>
+
+        • Java
+
+        <br>
+
+        • Python
+
+        <br>
+
+        • HTML / CSS
+
+        <br>
+
+        • SQL
+
+        <br>
+
+        • Artificial Intelligence
+
+        <br>
+
+        • Machine Learning
+
+        <br>
+
+        • Cloud Computing
+
+        <br><br>
+
+        For the full AI-powered version,
+        we will connect this page to the
+        backend later.
+
+    `;
+
+}
+
+
+
+/* =====================================================
+   SEND MESSAGE
+===================================================== */
+
+function sendMessage() {
+
+
+    const input =
+        document.getElementById(
+            "userInput"
+        );
+
+
+    const question =
+        input.value.trim();
+
+
+    if (!question) {
+
+        return;
+
+    }
+
+
+    addUserMessage(
+        question
+    );
+
+
+    input.value = "";
+
+
+    showTyping();
+
+
+    setTimeout(
+        function() {
+
+            hideTyping();
+
+            addAIMessage(
+                getResponse(question)
+            );
+
+        },
+        900
+    );
+
+}
+
+
+
+/* =====================================================
+   QUICK QUESTION
+===================================================== */
+
+function askQuestion(question) {
+
+
+    document.getElementById(
+        "userInput"
+    ).value = question;
+
+
+    sendMessage();
+
+}
+
+
+
+/* =====================================================
+   ADD USER MESSAGE
+===================================================== */
+
+function addUserMessage(text) {
+
+
+    const chatBody =
+        document.getElementById(
+            "chatBody"
+        );
+
+
+    const message =
+        document.createElement(
+            "div"
+        );
+
+
+    message.className =
+        "message user";
+
+
+    message.innerHTML = `
+
+        <div class="message-avatar">
+
+            <i class="fas fa-user"></i>
+
+        </div>
+
+
+        <div class="message-content">
+
+            <div class="message-bubble">
+
+                ${escapeHTML(text)}
+
+            </div>
+
+
+            <div class="message-time">
+
+                You
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    const typing =
+        document.getElementById(
+            "typingMessage"
+        );
+
+
+    chatBody.insertBefore(
+        message,
+        typing
+    );
+
+
+    scrollChat();
+
+}
+
+
+
+/* =====================================================
+   ADD AI MESSAGE
+===================================================== */
+
+function addAIMessage(text) {
+
+
+    const chatBody =
+        document.getElementById(
+            "chatBody"
+        );
+
+
+    const message =
+        document.createElement(
+            "div"
+        );
+
+
+    message.className =
+        "message ai";
+
+
+    message.innerHTML = `
+
+        <div class="message-avatar">
+
+            <i class="fas fa-robot"></i>
+
+        </div>
+
+
+        <div class="message-content">
+
+            <div class="message-bubble">
+
+                ${text}
+
+            </div>
+
+
+            <div class="message-time">
+
+                AI Assistant
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    const typing =
+        document.getElementById(
+            "typingMessage"
+        );
+
+
+    chatBody.insertBefore(
+        message,
+        typing
+    );
+
+
+    scrollChat();
+
+}
+
+
+
+/* =====================================================
+   TYPING
+===================================================== */
+
+function showTyping() {
+
+
+    document.getElementById(
+        "typingMessage"
+    ).style.display =
+        "flex";
+
+
+    document.getElementById(
+        "typing"
+    ).style.display =
+        "flex";
+
+
+    scrollChat();
+
+}
+
+
+
+function hideTyping() {
+
+
+    document.getElementById(
+        "typingMessage"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "typing"
+    ).style.display =
+        "none";
+
+}
+
+
+
+/* =====================================================
+   SCROLL CHAT
+===================================================== */
+
+function scrollChat() {
+
+
+    const chatBody =
+        document.getElementById(
+            "chatBody"
+        );
+
+
+    chatBody.scrollTop =
+        chatBody.scrollHeight;
+
+}
+
+
+
+/* =====================================================
+   CLEAR CHAT
+===================================================== */
+
+function clearChat() {
+
+
+    const chatBody =
+        document.getElementById(
+            "chatBody"
+        );
+
+
+    const typing =
+        document.getElementById(
+            "typingMessage"
+        );
+
+
+    chatBody.innerHTML = `
+
+        <div class="message ai">
+
+            <div class="message-avatar">
+
+                <i class="fas fa-robot"></i>
+
+            </div>
+
+
+            <div class="message-content">
+
+                <div class="message-bubble">
+
+                    Hello again! 👋
+
+                    <br><br>
+
+                    What would you like to learn today?
+
+                </div>
+
+
+                <div class="message-time">
+
+                    AI Assistant
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    chatBody.appendChild(
+        typing
+    );
+
+}
+
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(text) {
+
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.textContent =
+        text;
+
+
+    return div.innerHTML;
+
+}
+
+
+
+/* =====================================================
+   ENTER KEY
+===================================================== */
+
+document
+    .getElementById("userInput")
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                event.preventDefault();
+
+                sendMessage();
+
+            }
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>

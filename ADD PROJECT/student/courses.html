@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Courses - The Learning Hub">
+
+    <title>My Courses | The Learning Hub</title>
+
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+
+    <!-- Main CSS -->
+    <link
+        rel="stylesheet"
+        href="../assets/css/style.css">
+
+
+    <style>
+
+        body {
+            background: #f7faf8;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .dashboard-navbar {
+
+            background: #ffffff;
+
+            border-bottom: 1px solid #e3ebe6;
+
+        }
+
+
+        /* =====================================================
+           PAGE
+        ===================================================== */
+
+        .courses-page {
+
+            padding: 35px;
+
+        }
+
+
+        .page-title {
+
+            color: #102a43;
+
+            font-weight: 700;
+
+        }
+
+
+        .page-subtitle {
+
+            color: #6c757d;
+
+        }
+
+
+        /* =====================================================
+           SEARCH
+        ===================================================== */
+
+        .course-search {
+
+            background: #ffffff;
+
+            border: 1px solid #e3ebe6;
+
+            border-radius: 12px;
+
+            padding: 18px;
+
+        }
+
+
+        .course-search .form-control {
+
+            min-height: 46px;
+
+            border-color: #dce6e0;
+
+        }
+
+
+        .course-search .form-control:focus {
+
+            border-color: #198754;
+
+            box-shadow:
+                0 0 0 0.2rem rgba(25, 135, 84, 0.12);
+
+        }
+
+
+        /* =====================================================
+           CATEGORY BUTTONS
+        ===================================================== */
+
+        .category-btn {
+
+            border: 1px solid #dce6e0;
+
+            background: #ffffff;
+
+            color: #52616b;
+
+            border-radius: 8px;
+
+            padding: 8px 16px;
+
+            transition: 0.3s;
+
+        }
+
+
+        .category-btn:hover,
+
+        .category-btn.active {
+
+            background: #198754;
+
+            border-color: #198754;
+
+            color: #ffffff;
+
+        }
+
+
+        /* =====================================================
+           COURSE CARD
+        ===================================================== */
+
+        .course-card {
+
+            background: #ffffff;
+
+            border: 1px solid #e3ebe6;
+
+            border-radius: 15px;
+
+            overflow: hidden;
+
+            height: 100%;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .course-card:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 12px 30px rgba(16, 42, 67, 0.10);
+
+        }
+
+
+        .course-header {
+
+            height: 150px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #e8f5ee;
+
+            color: #198754;
+
+            font-size: 4rem;
+
+        }
+
+
+        .course-body {
+
+            padding: 22px;
+
+        }
+
+
+        .course-title {
+
+            color: #102a43;
+
+            font-weight: 700;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .course-description {
+
+            color: #6c757d;
+
+            font-size: 0.9rem;
+
+            min-height: 44px;
+
+        }
+
+
+        .course-meta {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            color: #6c757d;
+
+            font-size: 0.85rem;
+
+            margin: 15px 0;
+
+        }
+
+
+        .course-meta i {
+
+            color: #198754;
+
+        }
+
+
+        .progress {
+
+            height: 7px;
+
+            background: #e9efeb;
+
+        }
+
+
+        .progress-bar {
+
+            background: #198754;
+
+        }
+
+
+        .course-footer {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-top: 15px;
+
+        }
+
+
+        /* =====================================================
+           EMPTY MESSAGE
+        ===================================================== */
+
+        #noCourses {
+
+            display: none;
+
+            text-align: center;
+
+            padding: 60px 20px;
+
+            background: #ffffff;
+
+            border: 1px solid #e3ebe6;
+
+            border-radius: 15px;
+
+        }
+
+
+        #noCourses i {
+
+            font-size: 3rem;
+
+            color: #198754;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 768px) {
+
+            .courses-page {
+
+                padding: 25px 15px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar navbar-expand-lg dashboard-navbar sticky-top">
+
+    <div class="container-fluid px-4">
+
+
+        <a
+            class="navbar-brand"
+            href="../index.html">
+
+            <i class="fas fa-graduation-cap"></i>
+
+            The Learning Hub
+
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#courseNavbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div
+            class="collapse navbar-collapse"
+            id="courseNavbar">
+
+
+            <ul class="navbar-nav mx-auto">
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="dashboard.html">
+
+                        <i class="fas fa-chart-pie me-1"></i>
+
+                        Dashboard
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link active"
+                        href="courses.html">
+
+                        <i class="fas fa-book-open me-1"></i>
+
+                        Courses
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="notes.html">
+
+                        <i class="fas fa-note-sticky me-1"></i>
+
+                        Notes
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="quiz.html">
+
+                        <i class="fas fa-clipboard-question me-1"></i>
+
+                        Quiz
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+
+            <div class="dropdown">
+
+                <button
+                    class="btn btn-light dropdown-toggle"
+                    data-bs-toggle="dropdown">
+
+                    <i class="fas fa-user-circle text-success me-1"></i>
+
+                    <span id="userName">
+                        Student
+                    </span>
+
+                </button>
+
+
+                <ul class="dropdown-menu dropdown-menu-end">
+
+                    <li>
+
+                        <a
+                            class="dropdown-item"
+                            href="profile.html">
+
+                            <i class="fas fa-user me-2"></i>
+
+                            Profile
+
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a
+                            class="dropdown-item"
+                            href="settings.html">
+
+                            <i class="fas fa-gear me-2"></i>
+
+                            Settings
+
+                        </a>
+
+                    </li>
+
+
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+
+                    <li>
+
+                        <a
+                            class="dropdown-item text-danger"
+                            href="../login.html"
+                            onclick="logoutUser()">
+
+                            <i class="fas fa-right-from-bracket me-2"></i>
+
+                            Logout
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     COURSES PAGE
+===================================================== -->
+
+<main class="courses-page">
+
+
+    <div class="container-fluid">
+
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <div class="mb-4">
+
+
+            <span class="text-success fw-bold">
+
+                LEARNING LIBRARY
+
+            </span>
+
+
+            <h1 class="page-title mt-2">
+
+                Explore Courses
+
+            </h1>
+
+
+            <p class="page-subtitle">
+
+                Learn new skills, practice concepts,
+                and improve your knowledge.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             SEARCH + FILTER
+        ================================================== -->
+
+        <div class="course-search mb-4">
+
+
+            <div class="row g-3 align-items-center">
+
+
+                <!-- Search -->
+
+                <div class="col-lg-6">
+
+                    <div class="input-group">
+
+                        <span class="input-group-text bg-white">
+
+                            <i class="fas fa-search text-success"></i>
+
+                        </span>
+
+
+                        <input
+                            type="text"
+                            id="courseSearch"
+                            class="form-control"
+                            placeholder="Search courses..."
+                            onkeyup="searchCourses()">
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Categories -->
+
+                <div class="col-lg-6">
+
+                    <div
+                        class="d-flex gap-2 flex-wrap justify-content-lg-end">
+
+
+                        <button
+                            class="category-btn active"
+                            onclick="filterCourses('all', this)">
+
+                            All
+
+                        </button>
+
+
+                        <button
+                            class="category-btn"
+                            onclick="filterCourses('programming', this)">
+
+                            Programming
+
+                        </button>
+
+
+                        <button
+                            class="category-btn"
+                            onclick="filterCourses('web', this)">
+
+                            Web
+
+                        </button>
+
+
+                        <button
+                            class="category-btn"
+                            onclick="filterCourses('database', this)">
+
+                            Database
+
+                        </button>
+
+
+                        <button
+                            class="category-btn"
+                            onclick="filterCourses('ai', this)">
+
+                            AI
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             COURSE CARDS
+        ================================================== -->
+
+        <div
+            id="courseContainer"
+            class="row g-4">
+
+
+            <!-- =================================================
+                 PYTHON
+            ================================================== -->
+
+            <div
+                class="col-xl-3 col-lg-4 col-md-6 course-column"
+                data-category="programming"
+                data-name="python programming">
+
+
+                <div class="course-card">
+
+
+                    <div class="course-header">
+
+                        <i class="fab fa-python"></i>
+
+                    </div>
+
+
+                    <div class="course-body">
+
+
+                        <span
+                            class="badge bg-success-subtle text-success mb-2">
+
+                            Programming
+
+                        </span>
+
+
+                        <h5 class="course-title">
+
+                            Python Programming
+
+                        </h5>
+
+
+                        <p class="course-description">
+
+                            Learn Python from basics to
+                            problem solving and practical
+                            programming.
+
+                        </p>
+
+
+                        <div class="course-meta">
+
+                            <span>
+
+                                <i class="fas fa-book me-1"></i>
+
+                                12 Lessons
+
+                            </span>
+
+
+                            <span>
+
+                                <i class="fas fa-clock me-1"></i>
+
+                                8 Hours
+
+                            </span>
+
+                        </div>
+
+
+                        <div class="d-flex justify-content-between">
+
+                            <small>
+                                Progress
+                            </small>
+
+                            <small>
+                                67%
+                            </small>
+
+                        </div>
+
+
+                        <div class="progress mt-1">
+
+                            <div
+                                class="progress-bar"
+                                style="width:67%;">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="course-footer">
+
+
+                            <strong class="text-success">
+
+                                67% Complete
+
+                            </strong>
+
+
+                            <a
+                                href="course.html?course=python"
+                                class="btn btn-success btn-sm">
+
+                                Continue
+
+                            </a>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 JAVA
+            ================================================== -->
+
+            <div
+                class="col-xl-3 col-lg-4 col-md-6 course-column"
+                data-category="programming"
+                data-name="java programming">
+
+
+                <div class="course-card">
+
+
+                    <div class="course-header">
+
+                        <i class="fab fa-java"></i>
+
+                    </div>
+
+
+                    <div class="course-body">
+
+
+                        <span
+                            class="badge bg-success-subtle text-success mb-2">
+
+                            Programming
+
+                        </span>
+
+
+                        <h5 class="course-title">
+
+                            Java Programming
+
+                        </h5>
+
+
+                        <p class="course-description">
+
+                            Understand Java programming,
+                            OOP concepts, inheritance,
+                            interfaces and more.
+
+                        </p>
+
+
+                        <div class="course-meta">
+
+                            <span>
+
+                                <i class="fas fa-book me-1"></i>
+
+                                15 Lessons
+
+                            </span>
+
+
+                            <span>
+
+                                <i class="fas fa-clock me-1"></i>
+
+                                10 Hours
+
+                            </span>
+
+                        </div>
+
+
+                        <div class="d-flex justify-content-between">
+
+                            <small>
+                                Progress
+                            </small>
+
+                            <small>
+                                33%
+                            </small>
+
+                        </div>
+
+
+                        <div class="progress mt-1">
+
+                            <div
+                                class="progress-bar"
+                                style="width:33%;">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="course-footer">
+
+
+                            <strong class="text-success">
+
+                                33% Complete
+
+                            </strong>
+
+
+                            <a
+                                href="course.html?course=java"
+                                class="btn btn-success btn-sm">
+
+                                Continue
+
+                            </a>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 WEB DEVELOPMENT
+            ================================================== -->
+
+            <div
+                class="col-xl-3 col-lg-4 col-md-6 course-column"
+                data-category="web"
+                data-name="web development html css javascript">
+
+
+                <div class="course-card">
+
+
+                    <div class="course-header">
+
+                        <i class="fab fa-html5"></i>
+
+                    </div>
+
+
+                    <div class="course-body">
+
+
+                        <span
+                            class="badge bg-success-subtle text-success mb-2">
+
+                            Web Development
+
+                        </span>
+
+
+                        <h5 class="course-title">
+
+                            Web Development
+
+                        </h5>
+
+
+                        <p class="course-description">
+
+                            Build modern websites using
+                            HTML, CSS, JavaScript and
+                            responsive design.
+
+                        </p>
+
+
+                        <div class="course-meta">
+
+                            <span>
+
+                                <i class="fas fa-book me-1"></i>
+
+                                15 Lessons
+
+                            </span>
+
+
+                            <span>
+
+                                <i class="fas fa-clock me-1"></i>
+
+                                12 Hours
+
+                            </span>
+
+                        </div>
+
+
+                        <div class="d-flex justify-content-between">
+
+                            <small>
+                                Progress
+                            </small>
+
+                            <small>
+                                67%
+                            </small>
+
+                        </div>
+
+
+                        <div class="progress mt-1">
+
+                            <div
+                                class="progress-bar"
+                                style="width:67%;">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="course-footer">
+
+
+                            <strong class="text-success">
+
+                                67% Complete
+
+                            </strong>
+
+
+                            <a
+                                href="course.html?course=web-development"
+                                class="btn btn-success btn-sm">
+
+                                Continue
+
+                            </a>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 DATABASE
+            ================================================== -->
+
+            <div
+                class="col-xl-3 col-lg-4 col-md-6 course-column"
+                data-category="database"
+                data-name="database sql mysql">
+
+
+                <div class="course-card">
+
+
+                    <div class="course-header">
+
+                        <i class="fas fa-database"></i>
+
+                    </div>
+
+
+                    <div class="course-body">
+
+
+                        <span
+                            class="badge bg-success-subtle text-success mb-2">
+
+                            Database
+
+                        </span>
+
+
+                        <h5 class="course-title">
+
+                            Database & SQL
+
+                        </h5>
+
+
+                        <p class="course-description">
+
+                            Learn database concepts,
+                            SQL queries, MySQL,
+                            tables and relationships.
+
+                        </p>
+
+
+                        <div class="course-meta">
+
+                            <span>
+
+                                <i class="fas fa-book me-1"></i>
+
+                                10 Lessons
+
+                            </span>
+
+
+                            <span>
+
+                                <i class="fas fa-clock me-1"></i>
+
+                                7 Hours
+
+                            </span>
+
+                        </div>
+
+
+                        <div class="d-flex justify-content-between">
+
+                            <small>
+                                Progress
+                            </small>
+
+                            <small>
+                                45%
+                            </small>
+
+                        </div>
+
+
+                        <div class="progress mt-1">
+
+                            <div
+                                class="progress-bar"
+                                style="width:45%;">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="course-footer">
+
+
+                            <strong class="text-success">
+
+                                45% Complete
+
+                            </strong>
+
+
+                            <a
+                                href="course.html?course=database"
+                                class="btn btn-success btn-sm">
+
+                                Continue
+
+                            </a>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 AI / ML
+            ================================================== -->
+
+            <div
+                class="col-xl-3 col-lg-4 col-md-6 course-column"
+                data-category="ai"
+                data-name="artificial intelligence machine learning ai ml">
+
+
+                <div class="course-card">
+
+
+                    <div class="course-header">
+
+                        <i class="fas fa-brain"></i>
+
+                    </div>
+
+
+                    <div class="course-body">
+
+
+                        <span
+                            class="badge bg-success-subtle text-success mb-2">
+
+                            AI & ML
+
+                        </span>
+
+
+                        <h5 class="course-title">
+
+                            Artificial Intelligence
+
+                        </h5>
+
+
+                        <p class="course-description">
+
+                            Explore AI fundamentals,
+                            machine learning,
+                            search algorithms and
+                            intelligent systems.
+
+                        </p>
+
+
+                        <div class="course-meta">
+
+                            <span>
+
+                                <i class="fas fa-book me-1"></i>
+
+                                14 Lessons
+
+                            </span>
+
+
+                            <span>
+
+                                <i class="fas fa-clock me-1"></i>
+
+                                11 Hours
+
+                            </span>
+
+                        </div>
+
+
+                        <div class="d-flex justify-content-between">
+
+                            <small>
+                                Progress
+                            </small>
+
+                            <small>
+                                20%
+                            </small>
+
+                        </div>
+
+
+                        <div class="progress mt-1">
+
+                            <div
+                                class="progress-bar"
+                                style="width:20%;">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="course-footer">
+
+
+                            <strong class="text-success">
+
+                                20% Complete
+
+                            </strong>
+
+
+                            <a
+                                href="course.html?course=ai"
+                                class="btn btn-success btn-sm">
+
+                                Continue
+
+                            </a>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 CLOUD
+            ================================================== -->
+
+            <div
+                class="col-xl-3 col-lg-4 col-md-6 course-column"
+                data-category="programming"
+                data-name="cloud computing">
+
+
+                <div class="course-card">
+
+
+                    <div class="course-header">
+
+                        <i class="fas fa-cloud"></i>
+
+                    </div>
+
+
+                    <div class="course-body">
+
+
+                        <span
+                            class="badge bg-success-subtle text-success mb-2">
+
+                            Technology
+
+                        </span>
+
+
+                        <h5 class="course-title">
+
+                            Cloud Computing
+
+                        </h5>
+
+
+                        <p class="course-description">
+
+                            Learn cloud concepts,
+                            services, storage,
+                            computing and deployment.
+
+                        </p>
+
+
+                        <div class="course-meta">
+
+                            <span>
+
+                                <i class="fas fa-book me-1"></i>
+
+                                10 Lessons
+
+                            </span>
+
+
+                            <span>
+
+                                <i class="fas fa-clock me-1"></i>
+
+                                8 Hours
+
+                            </span>
+
+                        </div>
+
+
+                        <div class="d-flex justify-content-between">
+
+                            <small>
+                                Progress
+                            </small>
+
+                            <small>
+                                10%
+                            </small>
+
+                        </div>
+
+
+                        <div class="progress mt-1">
+
+                            <div
+                                class="progress-bar"
+                                style="width:10%;">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="course-footer">
+
+
+                            <strong class="text-success">
+
+                                10% Complete
+
+                            </strong>
+
+
+                            <a
+                                href="course.html?course=cloud"
+                                class="btn btn-success btn-sm">
+
+                                Continue
+
+                            </a>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 DATA SCIENCE
+            ================================================== -->
+
+            <div
+                class="col-xl-3 col-lg-4 col-md-6 course-column"
+                data-category="programming"
+                data-name="data science python pandas matplotlib">
+
+
+                <div class="course-card">
+
+
+                    <div class="course-header">
+
+                        <i class="fas fa-chart-column"></i>
+
+                    </div>
+
+
+                    <div class="course-body">
+
+
+                        <span
+                            class="badge bg-success-subtle text-success mb-2">
+
+                            Data Science
+
+                        </span>
+
+
+                        <h5 class="course-title">
+
+                            Data Science
+
+                        </h5>
+
+
+                        <p class="course-description">
+
+                            Learn Python data analysis,
+                            Pandas, visualization and
+                            data processing.
+
+                        </p>
+
+
+                        <div class="course-meta">
+
+                            <span>
+
+                                <i class="fas fa-book me-1"></i>
+
+                                12 Lessons
+
+                            </span>
+
+
+                            <span>
+
+                                <i class="fas fa-clock me-1"></i>
+
+                                9 Hours
+
+                            </span>
+
+                        </div>
+
+
+                        <div class="d-flex justify-content-between">
+
+                            <small>
+                                Progress
+                            </small>
+
+                            <small>
+                                0%
+                            </small>
+
+                        </div>
+
+
+                        <div class="progress mt-1">
+
+                            <div
+                                class="progress-bar"
+                                style="width:0%;">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="course-footer">
+
+
+                            <strong class="text-success">
+
+                                Not Started
+
+                            </strong>
+
+
+                            <a
+                                href="course.html?course=data-science"
+                                class="btn btn-outline-success btn-sm">
+
+                                Start Course
+
+                            </a>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             NO COURSES
+        ================================================== -->
+
+        <div id="noCourses">
+
+            <i class="fas fa-book-open"></i>
+
+
+            <h4>
+
+                No courses found
+
+            </h4>
+
+
+            <p class="text-muted">
+
+                Try searching for a different course
+                or category.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</main>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<script>
+
+
+/* =====================================================
+   USER NAME
+===================================================== */
+
+const storedUser =
+    sessionStorage.getItem("learningHubUser");
+
+
+if (storedUser) {
+
+    try {
+
+        const user =
+            JSON.parse(storedUser);
+
+
+        if (user.firstName) {
+
+            document.getElementById(
+                "userName"
+            ).textContent =
+                user.firstName;
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.log("User data unavailable.");
+
+    }
+
+}
+
+
+
+/* =====================================================
+   COURSE SEARCH
+===================================================== */
+
+function searchCourses() {
+
+    const searchValue =
+        document
+        .getElementById("courseSearch")
+        .value
+        .toLowerCase()
+        .trim();
+
+
+    const courses =
+        document.querySelectorAll(".course-column");
+
+
+    let visibleCourses = 0;
+
+
+    courses.forEach(function(course) {
+
+        const courseName =
+            course
+            .getAttribute("data-name")
+            .toLowerCase();
+
+
+        if (courseName.includes(searchValue)) {
+
+            course.style.display = "";
+
+            visibleCourses++;
+
+        }
+
+        else {
+
+            course.style.display = "none";
+
+        }
+
+    });
+
+
+    showNoCoursesMessage(visibleCourses);
+
+}
+
+
+
+/* =====================================================
+   CATEGORY FILTER
+===================================================== */
+
+function filterCourses(category, button) {
+
+
+    /* Change active button */
+
+    const buttons =
+        document.querySelectorAll(".category-btn");
+
+
+    buttons.forEach(function(btn) {
+
+        btn.classList.remove("active");
+
+    });
+
+
+    button.classList.add("active");
+
+
+
+    const courses =
+        document.querySelectorAll(".course-column");
+
+
+    let visibleCourses = 0;
+
+
+    courses.forEach(function(course) {
+
+        const courseCategory =
+            course.getAttribute("data-category");
+
+
+        if (
+            category === "all" ||
+            courseCategory === category
+        ) {
+
+            course.style.display = "";
+
+            visibleCourses++;
+
+        }
+
+        else {
+
+            course.style.display = "none";
+
+        }
+
+    });
+
+
+    document.getElementById(
+        "courseSearch"
+    ).value = "";
+
+
+    showNoCoursesMessage(visibleCourses);
+
+}
+
+
+
+/* =====================================================
+   NO COURSE MESSAGE
+===================================================== */
+
+function showNoCoursesMessage(count) {
+
+    const message =
+        document.getElementById("noCourses");
+
+
+    if (count === 0) {
+
+        message.style.display = "block";
+
+    }
+
+    else {
+
+        message.style.display = "none";
+
+    }
+
+}
+
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+function logoutUser() {
+
+    sessionStorage.removeItem(
+        "learningHubLoggedIn"
+    );
+
+
+    sessionStorage.removeItem(
+        "learningHubUser"
+    );
+
+}
+
+</script>
+
+
+</body>
+
+</html>

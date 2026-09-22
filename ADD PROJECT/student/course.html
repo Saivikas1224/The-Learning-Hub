@@ -1,0 +1,1909 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Course Learning Page - The Learning Hub">
+
+    <title>Course | The Learning Hub</title>
+
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+
+    <!-- Main CSS -->
+    <link
+        rel="stylesheet"
+        href="../assets/css/style.css">
+
+
+    <style>
+
+        body {
+            background: #f7faf8;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .course-navbar {
+
+            background: #ffffff;
+
+            border-bottom: 1px solid #e3ebe6;
+
+        }
+
+
+        /* =====================================================
+           COURSE HEADER
+        ===================================================== */
+
+        .course-hero {
+
+            background: #102a43;
+
+            color: #ffffff;
+
+            padding: 45px 0;
+
+        }
+
+
+        .course-hero h1 {
+
+            color: #ffffff;
+
+            font-weight: 700;
+
+        }
+
+
+        .course-hero p {
+
+            color: #d4e0dc;
+
+            max-width: 750px;
+
+        }
+
+
+        .course-icon-large {
+
+            width: 90px;
+
+            height: 90px;
+
+            border-radius: 18px;
+
+            background: rgba(25, 135, 84, 0.2);
+
+            color: #8bd5ac;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 3.5rem;
+
+        }
+
+
+        .course-stat {
+
+            color: #d4e0dc;
+
+            margin-right: 25px;
+
+        }
+
+
+        .course-stat i {
+
+            color: #8bd5ac;
+
+            margin-right: 6px;
+
+        }
+
+
+        /* =====================================================
+           COURSE LAYOUT
+        ===================================================== */
+
+        .course-page {
+
+            padding: 35px 0;
+
+        }
+
+
+        .course-content-card {
+
+            background: #ffffff;
+
+            border: 1px solid #e3ebe6;
+
+            border-radius: 15px;
+
+            padding: 28px;
+
+        }
+
+
+        .section-title {
+
+            color: #102a43;
+
+            font-weight: 700;
+
+        }
+
+
+        /* =====================================================
+           LESSON LIST
+        ===================================================== */
+
+        .lesson-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 16px;
+
+            border: 1px solid #e3ebe6;
+
+            border-radius: 10px;
+
+            margin-bottom: 10px;
+
+            background: #ffffff;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .lesson-item:hover {
+
+            background: #f7faf8;
+
+            border-color: #cfe3d8;
+
+        }
+
+
+        .lesson-number {
+
+            width: 38px;
+
+            height: 38px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #e8f5ee;
+
+            color: #198754;
+
+            font-weight: 700;
+
+            flex-shrink: 0;
+
+        }
+
+
+        .lesson-number.completed {
+
+            background: #198754;
+
+            color: #ffffff;
+
+        }
+
+
+        .lesson-details {
+
+            flex: 1;
+
+        }
+
+
+        .lesson-details h6 {
+
+            margin-bottom: 3px;
+
+            color: #263238;
+
+        }
+
+
+        .lesson-details small {
+
+            color: #6c757d;
+
+        }
+
+
+        .lesson-action {
+
+            flex-shrink: 0;
+
+        }
+
+
+        /* =====================================================
+           SIDEBAR
+        ===================================================== */
+
+        .course-sidebar {
+
+            position: sticky;
+
+            top: 100px;
+
+        }
+
+
+        .progress-card {
+
+            background: #ffffff;
+
+            border: 1px solid #e3ebe6;
+
+            border-radius: 15px;
+
+            padding: 25px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .progress-circle {
+
+            width: 130px;
+
+            height: 130px;
+
+            border-radius: 50%;
+
+            border: 10px solid #e8f5ee;
+
+            border-top-color: #198754;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin: 0 auto 20px;
+
+        }
+
+
+        .progress-circle strong {
+
+            font-size: 1.8rem;
+
+            color: #198754;
+
+        }
+
+
+        .course-info-card {
+
+            background: #ffffff;
+
+            border: 1px solid #e3ebe6;
+
+            border-radius: 15px;
+
+            padding: 25px;
+
+        }
+
+
+        .info-row {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            padding: 10px 0;
+
+            border-bottom: 1px solid #edf1ef;
+
+        }
+
+
+        .info-row:last-child {
+
+            border-bottom: none;
+
+        }
+
+
+        .info-row span:first-child {
+
+            color: #6c757d;
+
+        }
+
+
+        .info-row span:last-child {
+
+            font-weight: 600;
+
+            color: #263238;
+
+        }
+
+
+        /* =====================================================
+           LEARNING AREA
+        ===================================================== */
+
+        .learning-area {
+
+            background: #102a43;
+
+            border-radius: 15px;
+
+            padding: 35px;
+
+            color: #ffffff;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .learning-area h3 {
+
+            color: #ffffff;
+
+        }
+
+
+        .learning-area p {
+
+            color: #d4e0dc;
+
+        }
+
+
+        .learning-placeholder {
+
+            min-height: 260px;
+
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+
+            border-radius: 12px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-direction: column;
+
+            text-align: center;
+
+        }
+
+
+        .learning-placeholder i {
+
+            font-size: 3rem;
+
+            color: #8bd5ac;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 991px) {
+
+            .course-sidebar {
+
+                position: static;
+
+                margin-top: 25px;
+
+            }
+
+        }
+
+
+        @media (max-width: 575px) {
+
+            .course-hero {
+
+                padding: 30px 0;
+
+            }
+
+
+            .course-icon-large {
+
+                width: 70px;
+
+                height: 70px;
+
+                font-size: 2.5rem;
+
+            }
+
+
+            .course-hero h1 {
+
+                font-size: 1.8rem;
+
+            }
+
+
+            .course-content-card {
+
+                padding: 20px;
+
+            }
+
+
+            .lesson-item {
+
+                align-items: flex-start;
+
+            }
+
+
+            .lesson-action {
+
+                display: none;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar navbar-expand-lg course-navbar sticky-top">
+
+    <div class="container">
+
+        <a
+            class="navbar-brand"
+            href="../index.html">
+
+            <i class="fas fa-graduation-cap"></i>
+
+            The Learning Hub
+
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#courseNavbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div
+            class="collapse navbar-collapse"
+            id="courseNavbar">
+
+
+            <ul class="navbar-nav mx-auto">
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="dashboard.html">
+
+                        Dashboard
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link active"
+                        href="courses.html">
+
+                        Courses
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="notes.html">
+
+                        Notes
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="quiz.html">
+
+                        Quiz
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+
+            <a
+                href="dashboard.html"
+                class="btn btn-outline-success">
+
+                <i class="fas fa-chart-pie me-1"></i>
+
+                Dashboard
+
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     COURSE HERO
+===================================================== -->
+
+<section class="course-hero">
+
+    <div class="container">
+
+        <div class="row align-items-center g-4">
+
+
+            <div class="col-lg-2">
+
+                <div class="course-icon-large">
+
+                    <i
+                        id="courseIcon"
+                        class="fab fa-python">
+                    </i>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-10">
+
+
+                <span
+                    id="courseCategory"
+                    class="badge bg-success mb-2">
+
+                    Programming
+
+                </span>
+
+
+                <h1 id="courseTitle">
+
+                    Python Programming
+
+                </h1>
+
+
+                <p id="courseDescription">
+
+                    Learn Python programming from
+                    fundamentals to practical problem solving.
+
+                </p>
+
+
+                <div class="d-flex flex-wrap mt-3">
+
+
+                    <span class="course-stat">
+
+                        <i class="fas fa-book"></i>
+
+                        <span id="lessonCount">
+                            12 Lessons
+                        </span>
+
+                    </span>
+
+
+                    <span class="course-stat">
+
+                        <i class="fas fa-clock"></i>
+
+                        <span id="courseHours">
+                            8 Hours
+                        </span>
+
+                    </span>
+
+
+                    <span class="course-stat">
+
+                        <i class="fas fa-signal"></i>
+
+                        Intermediate
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MAIN COURSE PAGE
+===================================================== -->
+
+<main class="course-page">
+
+    <div class="container">
+
+
+        <div class="row g-4">
+
+
+            <!-- =================================================
+                 LEFT CONTENT
+            ================================================== -->
+
+            <div class="col-lg-8">
+
+
+                <!-- Learning Area -->
+
+                <div class="learning-area">
+
+
+                    <span
+                        class="text-uppercase fw-bold"
+                        style="color:#8bd5ac;">
+
+                        Current Lesson
+
+                    </span>
+
+
+                    <h3
+                        id="currentLessonTitle"
+                        class="mt-2">
+
+                        Introduction to Python
+
+                    </h3>
+
+
+                    <p id="currentLessonDescription">
+
+                        Learn what Python is, why it is
+                        popular and where it is used.
+
+                    </p>
+
+
+                  <div class="lesson-content">
+
+</div>
+
+
+                    <div class="d-flex justify-content-between mt-4">
+
+
+                        <button
+                            id="previousButton"
+                            class="btn btn-outline-light"
+                            onclick="previousLesson()">
+
+                            <i class="fas fa-arrow-left me-1"></i>
+
+                            Previous
+
+                        </button>
+
+
+                        <button
+                            id="completeButton"
+                            class="btn btn-success"
+                            onclick="completeLesson()">
+
+                            Mark as Complete
+
+                            <i class="fas fa-check ms-1"></i>
+
+                        </button>
+
+
+                        <button
+                            id="nextButton"
+                            class="btn btn-success"
+                            onclick="nextLesson()">
+
+                            Next
+
+                            <i class="fas fa-arrow-right ms-1"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Course Overview -->
+
+                <div class="course-content-card mb-4">
+
+
+                    <h4 class="section-title mb-3">
+
+                        Course Overview
+
+                    </h4>
+
+
+                    <p id="overviewText">
+
+                        This course provides a structured
+                        learning path designed to help students
+                        understand the fundamentals and apply
+                        their knowledge through practical
+                        exercises.
+
+                    </p>
+
+
+                    <h5 class="mt-4 mb-3">
+
+                        What You Will Learn
+
+                    </h5>
+
+
+                    <div class="row">
+
+
+                        <div class="col-md-6">
+
+                            <p>
+
+                                <i class="fas fa-circle-check text-success me-2"></i>
+
+                                Fundamental concepts
+
+                            </p>
+
+
+                            <p>
+
+                                <i class="fas fa-circle-check text-success me-2"></i>
+
+                                Practical programming
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <p>
+
+                                <i class="fas fa-circle-check text-success me-2"></i>
+
+                                Problem solving
+
+                            </p>
+
+
+                            <p>
+
+                                <i class="fas fa-circle-check text-success me-2"></i>
+
+                                Mini projects
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Lessons -->
+
+                <div class="course-content-card">
+
+
+                    <div
+                        class="d-flex justify-content-between align-items-center mb-4">
+
+
+                        <h4 class="section-title mb-0">
+
+                            Course Lessons
+
+                        </h4>
+
+
+                        <span
+                            id="completedText"
+                            class="text-success fw-semibold">
+
+                            0 / 12 Completed
+
+                        </span>
+
+                    </div>
+
+
+                    <div id="lessonList"></div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 RIGHT SIDEBAR
+            ================================================== -->
+
+            <div class="col-lg-4">
+
+
+                <div class="course-sidebar">
+
+
+                    <!-- Progress -->
+
+                    <div class="progress-card text-center">
+
+
+                        <h5 class="section-title mb-4">
+
+                            Your Progress
+
+                        </h5>
+
+
+                        <div class="progress-circle">
+
+                            <strong id="progressPercentage">
+
+                                0%
+
+                            </strong>
+
+                        </div>
+
+
+                        <p class="text-muted">
+
+                            Keep learning to complete
+                            this course.
+
+                        </p>
+
+
+                        <div class="progress">
+
+                            <div
+                                id="mainProgressBar"
+                                class="progress-bar"
+                                style="width:0%;">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Course Information -->
+
+                    <div class="course-info-card">
+
+
+                        <h5 class="section-title mb-3">
+
+                            Course Information
+
+                        </h5>
+
+
+                        <div class="info-row">
+
+                            <span>
+                                Lessons
+                            </span>
+
+                            <span id="infoLessons">
+                                12
+                            </span>
+
+                        </div>
+
+
+                        <div class="info-row">
+
+                            <span>
+                                Duration
+                            </span>
+
+                            <span id="infoDuration">
+                                8 Hours
+                            </span>
+
+                        </div>
+
+
+                        <div class="info-row">
+
+                            <span>
+                                Level
+                            </span>
+
+                            <span>
+                                Intermediate
+                            </span>
+
+                        </div>
+
+
+                        <div class="info-row">
+
+                            <span>
+                                Certificate
+                            </span>
+
+                            <span>
+                                Available
+                            </span>
+
+                        </div>
+
+
+                        <div class="info-row">
+
+                            <span>
+                                Access
+                            </span>
+
+                            <span>
+                                Lifetime
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="pt-4 pb-3">
+
+    <div class="container">
+
+        <hr>
+
+        <div class="text-center">
+
+            <p class="mb-0">
+
+                © 2026 The Learning Hub.
+                All Rights Reserved.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- Bootstrap -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+
+<script>
+
+/* =====================================================
+   COURSE DATA
+===================================================== */
+
+const courses = {
+
+    python: {
+
+        title: "Python Programming",
+
+        category: "Programming",
+
+        icon: "fab fa-python",
+
+        description:
+            "Learn Python programming from fundamentals to practical problem solving.",
+
+        lessons: 12,
+
+        hours: "8 Hours",
+
+        lessonsList: [
+
+            "Introduction to Python",
+
+            "Variables and Data Types",
+
+            "Operators and Expressions",
+
+            "Conditional Statements",
+
+            "Loops in Python",
+
+            "Functions",
+
+            "Lists and Tuples",
+
+            "Sets and Dictionaries",
+
+            "Object-Oriented Programming",
+
+            "File Handling",
+
+            "Exception Handling",
+
+            "Mini Project"
+
+        ]
+
+    },
+
+
+    java: {
+
+        title: "Java Programming",
+
+        category: "Programming",
+
+        icon: "fab fa-java",
+
+        description:
+            "Learn Java programming, object-oriented concepts and practical application development.",
+
+        lessons: 15,
+
+        hours: "10 Hours",
+
+        lessonsList: [
+
+            "Introduction to Java",
+
+            "Variables and Data Types",
+
+            "Operators",
+
+            "Conditional Statements",
+
+            "Loops",
+
+            "Arrays",
+
+            "Classes and Objects",
+
+            "Constructors",
+
+            "Inheritance",
+
+            "Polymorphism",
+
+            "Abstraction",
+
+            "Interfaces",
+
+            "Exception Handling",
+
+            "Packages",
+
+            "Mini Project"
+
+        ]
+
+    },
+
+
+    "web-development": {
+
+        title: "Web Development",
+
+        category: "Web Development",
+
+        icon: "fab fa-html5",
+
+        description:
+            "Build modern and responsive websites using HTML, CSS and JavaScript.",
+
+        lessons: 15,
+
+        hours: "12 Hours",
+
+        lessonsList: [
+
+            "Introduction to Web Development",
+
+            "HTML Fundamentals",
+
+            "HTML Forms",
+
+            "CSS Fundamentals",
+
+            "CSS Selectors",
+
+            "Flexbox",
+
+            "Responsive Design",
+
+            "JavaScript Basics",
+
+            "JavaScript Functions",
+
+            "DOM Manipulation",
+
+            "Events",
+
+            "Arrays and Objects",
+
+            "Bootstrap",
+
+            "Website Project",
+
+            "Final Project"
+
+        ]
+
+    },
+
+
+    database: {
+
+        title: "Database & SQL",
+
+        category: "Database",
+
+        icon: "fas fa-database",
+
+        description:
+            "Learn database concepts, SQL queries, MySQL and database management.",
+
+        lessons: 10,
+
+        hours: "7 Hours",
+
+        lessonsList: [
+
+            "Introduction to Databases",
+
+            "Database Management Systems",
+
+            "Relational Databases",
+
+            "Tables and Keys",
+
+            "SQL Basics",
+
+            "SELECT Queries",
+
+            "INSERT, UPDATE and DELETE",
+
+            "Joins",
+
+            "Constraints",
+
+            "Mini Database Project"
+
+        ]
+
+    },
+
+
+    ai: {
+
+        title: "Artificial Intelligence",
+
+        category: "AI & ML",
+
+        icon: "fas fa-brain",
+
+        description:
+            "Explore artificial intelligence, intelligent systems, search algorithms and machine learning basics.",
+
+        lessons: 14,
+
+        hours: "11 Hours",
+
+        lessonsList: [
+
+            "Introduction to AI",
+
+            "Intelligent Agents",
+
+            "Problem Solving",
+
+            "State Space Search",
+
+            "Breadth First Search",
+
+            "Depth First Search",
+
+            "Uniform Cost Search",
+
+            "Heuristic Search",
+
+            "A* Algorithm",
+
+            "Knowledge Representation",
+
+            "Machine Learning Basics",
+
+            "Neural Networks",
+
+            "AI Applications",
+
+            "Mini AI Project"
+
+        ]
+
+    },
+
+
+    cloud: {
+
+        title: "Cloud Computing",
+
+        category: "Technology",
+
+        icon: "fas fa-cloud",
+
+        description:
+            "Learn cloud computing concepts, services, storage, security and deployment.",
+
+        lessons: 10,
+
+        hours: "8 Hours",
+
+        lessonsList: [
+
+            "Introduction to Cloud Computing",
+
+            "Cloud Service Models",
+
+            "Cloud Deployment Models",
+
+            "Virtualization",
+
+            "Cloud Storage",
+
+            "Cloud Databases",
+
+            "Cloud Security",
+
+            "Cloud Networking",
+
+            "Cloud Deployment",
+
+            "Cloud Project"
+
+        ]
+
+    },
+
+
+    "data-science": {
+
+        title: "Data Science",
+
+        category: "Data Science",
+
+        icon: "fas fa-chart-column",
+
+        description:
+            "Learn data analysis using Python, Pandas, Matplotlib and practical data processing.",
+
+        lessons: 12,
+
+        hours: "9 Hours",
+
+        lessonsList: [
+
+            "Introduction to Data Science",
+
+            "Python for Data Science",
+
+            "NumPy Basics",
+
+            "Pandas Introduction",
+
+            "DataFrames",
+
+            "Data Cleaning",
+
+            "Data Analysis",
+
+            "Matplotlib",
+
+            "Data Visualization",
+
+            "Exploratory Data Analysis",
+
+            "Working with Datasets",
+
+            "Data Science Project"
+
+        ]
+
+    }
+
+};
+
+
+
+/* =====================================================
+   GET COURSE FROM URL
+===================================================== */
+
+const urlParams =
+    new URLSearchParams(window.location.search);
+
+
+let courseKey =
+    urlParams.get("course") || "python";
+
+
+let course =
+    courses[courseKey];
+
+
+if (!course) {
+
+    courseKey = "python";
+
+    course = courses.python;
+
+}
+
+
+
+/* =====================================================
+   COURSE ELEMENTS
+===================================================== */
+
+document.getElementById(
+    "courseTitle"
+).textContent = course.title;
+
+
+document.getElementById(
+    "courseCategory"
+).textContent = course.category;
+
+
+document.getElementById(
+    "courseDescription"
+).textContent = course.description;
+
+
+document.getElementById(
+    "lessonCount"
+).textContent =
+    course.lessons + " Lessons";
+
+
+document.getElementById(
+    "courseHours"
+).textContent =
+    course.hours;
+
+
+document.getElementById(
+    "infoLessons"
+).textContent =
+    course.lessons;
+
+
+document.getElementById(
+    "infoDuration"
+).textContent =
+    course.hours;
+
+
+document.getElementById(
+    "courseIcon"
+).className =
+    course.icon;
+
+
+
+/* =====================================================
+   LESSONS
+===================================================== */
+
+let currentLesson = 0;
+
+
+let completedLessons =
+    JSON.parse(
+        localStorage.getItem(
+            "completed_" + courseKey
+        )
+    ) || [];
+
+
+
+function createLessonList() {
+
+    const lessonList =
+        document.getElementById(
+            "lessonList"
+        );
+
+
+    lessonList.innerHTML = "";
+
+
+    course.lessonsList.forEach(
+        function(lesson, index) {
+
+
+            const isCompleted =
+                completedLessons.includes(index);
+
+
+            const item =
+                document.createElement("div");
+
+
+            item.className =
+                "lesson-item";
+
+
+            item.innerHTML = `
+
+                <div class="lesson-number
+                    ${isCompleted ? "completed" : ""}">
+
+                    ${
+                        isCompleted
+                        ? '<i class="fas fa-check"></i>'
+                        : index + 1
+                    }
+
+                </div>
+
+
+                <div class="lesson-details">
+
+                    <h6>
+                        ${lesson}
+                    </h6>
+
+                    <small>
+                        Lesson ${index + 1}
+                    </small>
+
+                </div>
+
+
+                <div class="lesson-action">
+
+                    <button
+                        class="btn btn-sm
+                        ${
+                            isCompleted
+                            ? "btn-success"
+                            : "btn-outline-success"
+                        }"
+                        onclick="openLesson(${index})">
+
+                        ${
+                            isCompleted
+                            ? "Completed"
+                            : "Start"
+                        }
+
+                    </button>
+
+                </div>
+
+            `;
+
+
+            lessonList.appendChild(item);
+
+        }
+    );
+
+
+
+    updateProgress();
+
+}
+
+
+
+/* =====================================================
+   OPEN LESSON
+===================================================== */
+
+function openLesson(index) {
+
+    currentLesson = index;
+
+
+    document.getElementById(
+        "currentLessonTitle"
+    ).textContent =
+        course.lessonsList[index];
+
+
+    document.getElementById(
+        "currentLessonDescription"
+    ).textContent =
+        "You are currently studying Lesson " +
+        (index + 1) +
+        " of " +
+        course.lessons +
+        ".";
+
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+
+    updateButtons();
+
+}
+
+
+
+/* =====================================================
+   COMPLETE LESSON
+===================================================== */
+
+function completeLesson() {
+
+    if (
+        !completedLessons.includes(
+            currentLesson
+        )
+    ) {
+
+        completedLessons.push(
+            currentLesson
+        );
+
+
+        localStorage.setItem(
+
+            "completed_" + courseKey,
+
+            JSON.stringify(
+                completedLessons
+            )
+
+        );
+
+    }
+
+
+    createLessonList();
+
+
+    if (
+        currentLesson <
+        course.lessons - 1
+    ) {
+
+        currentLesson++;
+
+        openLesson(currentLesson);
+
+    }
+
+    else {
+
+        document.getElementById(
+            "completeButton"
+        ).innerHTML =
+            '<i class="fas fa-trophy me-1"></i> Course Completed';
+
+    }
+
+}
+
+
+
+/* =====================================================
+   NEXT LESSON
+===================================================== */
+
+function nextLesson() {
+
+    if (
+        currentLesson <
+        course.lessons - 1
+    ) {
+
+        currentLesson++;
+
+        openLesson(currentLesson);
+
+    }
+
+}
+
+
+
+/* =====================================================
+   PREVIOUS LESSON
+===================================================== */
+
+function previousLesson() {
+
+    if (currentLesson > 0) {
+
+        currentLesson--;
+
+        openLesson(currentLesson);
+
+    }
+
+}
+
+
+
+/* =====================================================
+   UPDATE PROGRESS
+===================================================== */
+
+function updateProgress() {
+
+    const completed =
+        completedLessons.length;
+
+
+    const total =
+        course.lessons;
+
+
+    const percentage =
+        Math.round(
+            (completed / total) * 100
+        );
+
+
+    document.getElementById(
+        "progressPercentage"
+    ).textContent =
+        percentage + "%";
+
+
+    document.getElementById(
+        "mainProgressBar"
+    ).style.width =
+        percentage + "%";
+
+
+    document.getElementById(
+        "completedText"
+    ).textContent =
+        completed +
+        " / " +
+        total +
+        " Completed";
+
+
+    updateButtons();
+
+}
+
+
+
+/* =====================================================
+   UPDATE BUTTONS
+===================================================== */
+
+function updateButtons() {
+
+    const previous =
+        document.getElementById(
+            "previousButton"
+        );
+
+
+    const next =
+        document.getElementById(
+            "nextButton"
+        );
+
+
+    const complete =
+        document.getElementById(
+            "completeButton"
+        );
+
+
+    previous.disabled =
+        currentLesson === 0;
+
+
+    next.disabled =
+        currentLesson ===
+        course.lessons - 1;
+
+
+    if (
+        completedLessons.includes(
+            currentLesson
+        )
+    ) {
+
+        complete.innerHTML =
+            '<i class="fas fa-check me-1"></i> Completed';
+
+        complete.classList.remove(
+            "btn-success"
+        );
+
+        complete.classList.add(
+            "btn-secondary"
+        );
+
+    }
+
+    else {
+
+        complete.innerHTML =
+            'Mark as Complete <i class="fas fa-check ms-1"></i>';
+
+        complete.classList.remove(
+            "btn-secondary"
+        );
+
+        complete.classList.add(
+            "btn-success"
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+createLessonList();
+
+
+openLesson(0);
+
+</script>
+<script src="../assets/js/course-content.js"></script>
+
+<script src="../assets/js/course.js"></script>
+
+</body>
+
+</html>

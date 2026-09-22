@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Learn more about The Learning Hub, a smart education platform.">
+
+    <title>About Us | The Learning Hub</title>
+
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+
+    <!-- Main CSS -->
+    <link
+        rel="stylesheet"
+        href="assets/css/style.css">
+
+
+    <style>
+
+        /* About page specific styles */
+
+        .about-hero {
+            background:
+                linear-gradient(
+                    135deg,
+                    #f7faf8,
+                    #ffffff,
+                    #eef8f3
+                );
+
+            padding: 90px 0;
+        }
+
+        .about-hero h1 {
+            font-size: 3.2rem;
+        }
+
+        .about-icon-box {
+            width: 75px;
+            height: 75px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 15px;
+
+            background: #e8f5ee;
+            color: #198754;
+
+            font-size: 1.8rem;
+
+            margin-bottom: 20px;
+        }
+
+        .mission-card {
+            padding: 35px;
+
+            height: 100%;
+
+            border: 1px solid #e3ebe6;
+
+            border-radius: 16px;
+
+            background: #ffffff;
+
+            box-shadow: 0 10px 30px rgba(16, 42, 67, 0.08);
+
+            transition: 0.3s ease;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 15px 35px rgba(16, 42, 67, 0.14);
+        }
+
+        .about-stat {
+            background: #102a43;
+
+            border-radius: 16px;
+
+            padding: 30px;
+
+            height: 100%;
+
+            text-align: center;
+        }
+
+        .about-stat i {
+            color: #8bd5ac;
+
+            font-size: 2rem;
+
+            margin-bottom: 10px;
+        }
+
+        .about-stat h3 {
+            color: #ffffff;
+        }
+
+        .about-stat p {
+            color: #d4e0dc;
+            margin: 0;
+        }
+
+        .why-card {
+            height: 100%;
+
+            padding: 30px;
+
+            border: 1px solid #e3ebe6;
+
+            border-radius: 16px;
+
+            background: #ffffff;
+
+            transition: 0.3s ease;
+        }
+
+        .why-card:hover {
+            transform: translateY(-5px);
+
+            border-color: #cfe3d8;
+
+            box-shadow:
+                0 15px 35px rgba(16, 42, 67, 0.12);
+        }
+
+        .why-card i {
+            color: #198754;
+            font-size: 2rem;
+            margin-bottom: 18px;
+        }
+
+        .cta-section {
+            background: #f7faf8;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar navbar-expand-lg sticky-top">
+
+    <div class="container">
+
+
+        <a
+            class="navbar-brand"
+            href="index.html">
+
+            <i class="fas fa-graduation-cap"></i>
+
+            The Learning Hub
+
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div
+            class="collapse navbar-collapse"
+            id="mainNavbar">
+
+
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="index.html">
+
+                        Home
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link active"
+                        href="about.html">
+
+                        About
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="index.html#courses">
+
+                        Courses
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="index.html#features">
+
+                        Features
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="index.html#how-it-works">
+
+                        How It Works
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+
+            <div class="d-flex gap-2">
+
+                <a
+                    href="login.html"
+                    class="btn btn-outline-success">
+
+                    Login
+
+                </a>
+
+
+                <a
+                    href="register.html"
+                    class="btn btn-success">
+
+                    Register
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     ABOUT HERO
+===================================================== -->
+
+<section class="about-hero">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+
+            <div class="col-lg-7">
+
+
+                <span class="text-success fw-bold">
+
+                    ABOUT THE LEARNING HUB
+
+                </span>
+
+
+                <h1 class="fw-bold mt-3 mb-4">
+
+                    Learning made
+                    <span class="text-success">
+                        simple and smarter.
+                    </span>
+
+                </h1>
+
+
+                <p class="lead">
+
+                    The Learning Hub is a smart education platform
+                    designed to give students a simple, organized
+                    and engaging environment for learning and
+                    skill development.
+
+                </p>
+
+
+                <p>
+
+                    Instead of using different platforms for
+                    courses, notes, quizzes and progress tracking,
+                    The Learning Hub brings these learning tools
+                    together in one place.
+
+                </p>
+
+
+                <div class="d-flex flex-wrap gap-3 mt-4">
+
+
+                    <a
+                        href="register.html"
+                        class="btn btn-success btn-lg">
+
+                        Start Learning
+
+                        <i class="fas fa-arrow-right ms-2"></i>
+
+                    </a>
+
+
+                    <a
+                        href="index.html#courses"
+                        class="btn btn-outline-success btn-lg">
+
+                        Explore Courses
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-lg-5">
+
+
+                <div class="about-illustration">
+
+                    <i class="fas fa-graduation-cap"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     OUR PURPOSE
+===================================================== -->
+
+<section class="py-5">
+
+    <div class="container">
+
+
+        <div class="text-center mb-5">
+
+            <span class="text-success fw-bold">
+                OUR PURPOSE
+            </span>
+
+
+            <h2 class="fw-bold mt-2">
+                Why The Learning Hub?
+            </h2>
+
+
+            <p>
+                We want to make digital learning more organized,
+                accessible and student-friendly.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- Mission -->
+
+            <div class="col-lg-6">
+
+
+                <div class="mission-card">
+
+
+                    <div class="about-icon-box">
+
+                        <i class="fas fa-bullseye"></i>
+
+                    </div>
+
+
+                    <h3>
+                        Our Mission
+                    </h3>
+
+
+                    <p>
+
+                        Our mission is to provide students with
+                        a centralized learning environment where
+                        they can access educational content,
+                        practice their knowledge and monitor
+                        their learning progress.
+
+                    </p>
+
+
+                    <p class="mb-0">
+
+                        The platform focuses on making learning
+                        easier to understand and easier to manage.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Vision -->
+
+            <div class="col-lg-6">
+
+
+                <div class="mission-card">
+
+
+                    <div class="about-icon-box">
+
+                        <i class="fas fa-eye"></i>
+
+                    </div>
+
+
+                    <h3>
+                        Our Vision
+                    </h3>
+
+
+                    <p>
+
+                        Our vision is to create a modern learning
+                        platform where technology supports
+                        students throughout their learning journey.
+
+                    </p>
+
+
+                    <p class="mb-0">
+
+                        We aim to combine structured education,
+                        interactive practice and smart learning
+                        tools into one simple platform.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     STATISTICS
+===================================================== -->
+
+<section class="py-5">
+
+    <div class="container">
+
+
+        <div class="row g-4">
+
+
+            <div class="col-6 col-lg-3">
+
+
+                <div class="about-stat">
+
+                    <i class="fas fa-users"></i>
+
+                    <h3>
+                        1K+
+                    </h3>
+
+                    <p>
+                        Learners
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-lg-3">
+
+
+                <div class="about-stat">
+
+                    <i class="fas fa-book"></i>
+
+                    <h3>
+                        10+
+                    </h3>
+
+                    <p>
+                        Courses
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-lg-3">
+
+
+                <div class="about-stat">
+
+                    <i class="fas fa-file-lines"></i>
+
+                    <h3>
+                        50+
+                    </h3>
+
+                    <p>
+                        Lessons
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-lg-3">
+
+
+                <div class="about-stat">
+
+                    <i class="fas fa-award"></i>
+
+                    <h3>
+                        95%
+                    </h3>
+
+                    <p>
+                        Satisfaction
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WHY USE THE LEARNING HUB
+===================================================== -->
+
+<section class="py-5">
+
+    <div class="container">
+
+
+        <div class="text-center mb-5">
+
+            <span class="text-success fw-bold">
+                BENEFITS
+            </span>
+
+
+            <h2 class="fw-bold mt-2">
+                Why students can use it
+            </h2>
+
+
+            <p>
+                Designed around the needs of modern learners.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- Benefit 1 -->
+
+            <div class="col-md-6 col-lg-4">
+
+
+                <div class="why-card">
+
+                    <i class="fas fa-layer-group"></i>
+
+
+                    <h4>
+                        Organized Learning
+                    </h4>
+
+
+                    <p>
+
+                        Courses and lessons are organized into
+                        structured learning paths so students
+                        can learn step by step.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Benefit 2 -->
+
+            <div class="col-md-6 col-lg-4">
+
+
+                <div class="why-card">
+
+                    <i class="fas fa-clock"></i>
+
+
+                    <h4>
+                        Learn at Your Pace
+                    </h4>
+
+
+                    <p>
+
+                        Students can access their learning
+                        materials and study according to
+                        their own schedule.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Benefit 3 -->
+
+            <div class="col-md-6 col-lg-4">
+
+
+                <div class="why-card">
+
+                    <i class="fas fa-mobile-screen-button"></i>
+
+
+                    <h4>
+                        Responsive Platform
+                    </h4>
+
+
+                    <p>
+
+                        The platform is designed to work across
+                        desktops, laptops, tablets and mobile
+                        devices.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Benefit 4 -->
+
+            <div class="col-md-6 col-lg-4">
+
+
+                <div class="why-card">
+
+                    <i class="fas fa-clipboard-check"></i>
+
+
+                    <h4>
+                        Practice with Quizzes
+                    </h4>
+
+
+                    <p>
+
+                        Interactive quizzes help students
+                        check their understanding and identify
+                        areas for improvement.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Benefit 5 -->
+
+            <div class="col-md-6 col-lg-4">
+
+
+                <div class="why-card">
+
+                    <i class="fas fa-chart-line"></i>
+
+
+                    <h4>
+                        Track Progress
+                    </h4>
+
+
+                    <p>
+
+                        Students can monitor completed lessons,
+                        quiz results and overall learning progress.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Benefit 6 -->
+
+            <div class="col-md-6 col-lg-4">
+
+
+                <div class="why-card">
+
+                    <i class="fas fa-lightbulb"></i>
+
+
+                    <h4>
+                        Smart Learning Tools
+                    </h4>
+
+
+                    <p>
+
+                        Smart study tools can help students
+                        understand difficult topics and practice
+                        more effectively.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     LEARNING JOURNEY
+===================================================== -->
+
+<section class="py-5">
+
+    <div class="container">
+
+
+        <div class="row align-items-center g-5">
+
+
+            <div class="col-lg-6">
+
+
+                <span class="text-success fw-bold">
+                    YOUR LEARNING JOURNEY
+                </span>
+
+
+                <h2 class="fw-bold mt-2 mb-4">
+
+                    From learning a concept
+                    to mastering it.
+
+                </h2>
+
+
+                <p>
+
+                    The Learning Hub follows a simple learning
+                    cycle that encourages students to understand,
+                    practice and improve.
+
+                </p>
+
+
+                <div class="d-flex gap-3 mt-4">
+
+
+                    <div class="about-icon-box flex-shrink-0">
+
+                        <i class="fas fa-book-open"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h5>
+                            Learn
+                        </h5>
+
+                        <p>
+                            Study structured lessons and
+                            learning materials.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="d-flex gap-3 mt-3">
+
+
+                    <div class="about-icon-box flex-shrink-0">
+
+                        <i class="fas fa-pen"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h5>
+                            Practice
+                        </h5>
+
+                        <p>
+                            Take quizzes and solve practice
+                            questions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="d-flex gap-3 mt-3">
+
+
+                    <div class="about-icon-box flex-shrink-0">
+
+                        <i class="fas fa-chart-line"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h5>
+                            Improve
+                        </h5>
+
+                        <p>
+                            Analyze your progress and identify
+                            areas that need improvement.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="d-flex gap-3 mt-3">
+
+
+                    <div class="about-icon-box flex-shrink-0">
+
+                        <i class="fas fa-trophy"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h5>
+                            Achieve
+                        </h5>
+
+                        <p>
+                            Complete courses and earn achievements
+                            as you progress.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-lg-6">
+
+
+                <div class="about-illustration">
+
+                    <i class="fas fa-brain"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TECHNOLOGY SECTION
+===================================================== -->
+
+<section class="py-5">
+
+    <div class="container">
+
+
+        <div class="text-center mb-5">
+
+            <span class="text-success fw-bold">
+                TECHNOLOGY
+            </span>
+
+
+            <h2 class="fw-bold mt-2">
+                Built for modern learning
+            </h2>
+
+
+            <p>
+                The platform combines commonly used web
+                technologies to create a practical learning system.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-6 col-md-3">
+
+
+                <div class="why-card text-center">
+
+                    <i class="fab fa-html5"></i>
+
+                    <h5>
+                        HTML
+                    </h5>
+
+                    <p>
+                        Website structure
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-3">
+
+
+                <div class="why-card text-center">
+
+                    <i class="fab fa-css3-alt"></i>
+
+                    <h5>
+                        CSS
+                    </h5>
+
+                    <p>
+                        Website design
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-3">
+
+
+                <div class="why-card text-center">
+
+                    <i class="fab fa-js"></i>
+
+                    <h5>
+                        JavaScript
+                    </h5>
+
+                    <p>
+                        User interaction
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-3">
+
+
+                <div class="why-card text-center">
+
+                    <i class="fab fa-php"></i>
+
+                    <h5>
+                        PHP + MySQL
+                    </h5>
+
+                    <p>
+                        Backend & database
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CALL TO ACTION
+===================================================== -->
+
+<section class="cta-section py-5">
+
+    <div class="container">
+
+
+        <div class="text-center">
+
+
+            <span class="text-success fw-bold">
+                START TODAY
+            </span>
+
+
+            <h2 class="fw-bold mt-2">
+                Ready to start learning?
+            </h2>
+
+
+            <p class="mb-4">
+
+                Create your account and begin your
+                smart learning journey.
+
+            </p>
+
+
+            <a
+                href="register.html"
+                class="btn btn-success btn-lg px-5">
+
+                Create Free Account
+
+                <i class="fas fa-arrow-right ms-2"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="pt-5 pb-3">
+
+    <div class="container">
+
+
+        <div class="row g-4">
+
+
+            <div class="col-lg-4">
+
+
+                <h4>
+
+                    <i class="fas fa-graduation-cap me-2"></i>
+
+                    The Learning Hub
+
+                </h4>
+
+
+                <p class="mt-3">
+
+                    A smart education platform designed to help
+                    students learn, practice, improve and achieve
+                    their learning goals.
+
+                </p>
+
+
+                <div class="social-links mt-4">
+
+
+                    <a href="#">
+
+                        <i class="fab fa-facebook-f"></i>
+
+                    </a>
+
+
+                    <a href="#">
+
+                        <i class="fab fa-instagram"></i>
+
+                    </a>
+
+
+                    <a href="#">
+
+                        <i class="fab fa-linkedin-in"></i>
+
+                    </a>
+
+
+                    <a href="#">
+
+                        <i class="fab fa-youtube"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-lg-2">
+
+
+                <h5>
+                    Platform
+                </h5>
+
+
+                <ul class="list-unstyled mt-3">
+
+
+                    <li class="mb-2">
+
+                        <a href="index.html">
+                            Home
+                        </a>
+
+                    </li>
+
+
+                    <li class="mb-2">
+
+                        <a href="about.html">
+                            About
+                        </a>
+
+                    </li>
+
+
+                    <li class="mb-2">
+
+                        <a href="index.html#courses">
+                            Courses
+                        </a>
+
+                    </li>
+
+
+                    <li class="mb-2">
+
+                        <a href="index.html#features">
+                            Features
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="col-6 col-lg-2">
+
+
+                <h5>
+                    Account
+                </h5>
+
+
+                <ul class="list-unstyled mt-3">
+
+
+                    <li class="mb-2">
+
+                        <a href="login.html">
+                            Login
+                        </a>
+
+                    </li>
+
+
+                    <li class="mb-2">
+
+                        <a href="register.html">
+                            Register
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="col-lg-4">
+
+
+                <h5>
+                    Contact
+                </h5>
+
+
+                <ul class="list-unstyled mt-3">
+
+
+                    <li class="mb-3">
+
+                        <i class="fas fa-envelope text-success me-2"></i>
+
+                        support@thelearninghub.com
+
+                    </li>
+
+
+                    <li class="mb-3">
+
+                        <i class="fas fa-location-dot text-success me-2"></i>
+
+                        Online Learning Platform
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <hr class="my-4">
+
+
+        <div class="text-center">
+
+            <p class="mb-0">
+
+                © 2026 The Learning Hub.
+                All Rights Reserved.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- Bootstrap JavaScript -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+</body>
+
+</html>

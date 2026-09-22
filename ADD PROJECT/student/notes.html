@@ -1,0 +1,1764 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Study Notes - The Learning Hub">
+
+    <title>My Notes | The Learning Hub</title>
+
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+
+    <!-- Main CSS -->
+    <link
+        rel="stylesheet"
+        href="../assets/css/style.css">
+
+
+    <style>
+
+        body {
+            background: #f7faf8;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .notes-navbar {
+
+            background: #ffffff;
+
+            border-bottom: 1px solid #e3ebe6;
+
+        }
+
+
+        /* =====================================================
+           PAGE
+        ===================================================== */
+
+        .notes-page {
+
+            padding: 35px 0;
+
+        }
+
+
+        .page-title {
+
+            color: #102a43;
+
+            font-weight: 700;
+
+        }
+
+
+        .page-subtitle {
+
+            color: #6c757d;
+
+        }
+
+
+        /* =====================================================
+           SEARCH BAR
+        ===================================================== */
+
+        .notes-toolbar {
+
+            background: #ffffff;
+
+            border: 1px solid #e3ebe6;
+
+            border-radius: 15px;
+
+            padding: 20px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .notes-toolbar .form-control,
+        .notes-toolbar .form-select {
+
+            min-height: 45px;
+
+            border-color: #dce6e0;
+
+        }
+
+
+        .notes-toolbar .form-control:focus,
+        .notes-toolbar .form-select:focus {
+
+            border-color: #198754;
+
+            box-shadow:
+                0 0 0 0.2rem rgba(25, 135, 84, 0.12);
+
+        }
+
+
+        /* =====================================================
+           NOTE CARD
+        ===================================================== */
+
+        .note-card {
+
+            background: #ffffff;
+
+            border: 1px solid #e3ebe6;
+
+            border-radius: 15px;
+
+            padding: 22px;
+
+            height: 100%;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .note-card:hover {
+
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 10px 25px rgba(16, 42, 67, 0.08);
+
+        }
+
+
+        .note-icon {
+
+            width: 45px;
+
+            height: 45px;
+
+            border-radius: 10px;
+
+            background: #e8f5ee;
+
+            color: #198754;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 1.2rem;
+
+        }
+
+
+        .note-title {
+
+            color: #102a43;
+
+            font-weight: 700;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .note-content {
+
+            color: #6c757d;
+
+            font-size: 0.92rem;
+
+            line-height: 1.6;
+
+            display: -webkit-box;
+
+            -webkit-line-clamp: 4;
+
+            -webkit-box-orient: vertical;
+
+            overflow: hidden;
+
+            min-height: 90px;
+
+        }
+
+
+        .note-date {
+
+            color: #8a969f;
+
+            font-size: 0.8rem;
+
+        }
+
+
+        .note-actions {
+
+            border-top: 1px solid #edf1ef;
+
+            margin-top: 15px;
+
+            padding-top: 15px;
+
+        }
+
+
+        /* =====================================================
+           EMPTY STATE
+        ===================================================== */
+
+        #emptyNotes {
+
+            display: none;
+
+            background: #ffffff;
+
+            border: 1px solid #e3ebe6;
+
+            border-radius: 15px;
+
+            padding: 70px 20px;
+
+            text-align: center;
+
+        }
+
+
+        #emptyNotes i {
+
+            color: #198754;
+
+            font-size: 3.5rem;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        /* =====================================================
+           MODAL
+        ===================================================== */
+
+        .modal-content {
+
+            border: none;
+
+            border-radius: 15px;
+
+            overflow: hidden;
+
+        }
+
+
+        .modal-header {
+
+            background: #102a43;
+
+            color: #ffffff;
+
+        }
+
+
+        .modal-header .btn-close {
+
+            filter: brightness(0) invert(1);
+
+        }
+
+
+        .modal-body {
+
+            padding: 25px;
+
+        }
+
+
+        .modal-body .form-control,
+        .modal-body .form-select {
+
+            border-color: #dce6e0;
+
+        }
+
+
+        .modal-body .form-control:focus,
+        .modal-body .form-select:focus {
+
+            border-color: #198754;
+
+            box-shadow:
+                0 0 0 0.2rem rgba(25, 135, 84, 0.12);
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 768px) {
+
+            .notes-page {
+
+                padding: 25px 15px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar navbar-expand-lg notes-navbar sticky-top">
+
+    <div class="container">
+
+        <a
+            class="navbar-brand"
+            href="../index.html">
+
+            <i class="fas fa-graduation-cap"></i>
+
+            The Learning Hub
+
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#notesNavbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div
+            class="collapse navbar-collapse"
+            id="notesNavbar">
+
+
+            <ul class="navbar-nav mx-auto">
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="dashboard.html">
+
+                        <i class="fas fa-chart-pie me-1"></i>
+
+                        Dashboard
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="courses.html">
+
+                        <i class="fas fa-book-open me-1"></i>
+
+                        Courses
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link active"
+                        href="notes.html">
+
+                        <i class="fas fa-note-sticky me-1"></i>
+
+                        Notes
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="quiz.html">
+
+                        <i class="fas fa-clipboard-question me-1"></i>
+
+                        Quiz
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+
+            <a
+                href="dashboard.html"
+                class="btn btn-outline-success">
+
+                <i class="fas fa-chart-pie me-1"></i>
+
+                Dashboard
+
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     MAIN PAGE
+===================================================== -->
+
+<main class="notes-page">
+
+    <div class="container">
+
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <div
+            class="d-flex justify-content-between
+                   align-items-center flex-wrap gap-3 mb-4">
+
+
+            <div>
+
+                <span class="text-success fw-bold">
+
+                    STUDY SPACE
+
+                </span>
+
+
+                <h1 class="page-title mt-2 mb-1">
+
+                    My Notes
+
+                </h1>
+
+
+                <p class="page-subtitle mb-0">
+
+                    Create and organize your study notes
+                    in one place.
+
+                </p>
+
+            </div>
+
+
+            <button
+                class="btn btn-success"
+                onclick="openAddNoteModal()">
+
+                <i class="fas fa-plus me-2"></i>
+
+                Add New Note
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =================================================
+             SEARCH & FILTER
+        ================================================== -->
+
+        <div class="notes-toolbar">
+
+
+            <div class="row g-3 align-items-center">
+
+
+                <div class="col-lg-7">
+
+                    <div class="input-group">
+
+                        <span class="input-group-text bg-white">
+
+                            <i class="fas fa-search text-success"></i>
+
+                        </span>
+
+
+                        <input
+                            type="text"
+                            id="searchNotes"
+                            class="form-control"
+                            placeholder="Search your notes..."
+                            onkeyup="displayNotes()">
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-3">
+
+                    <select
+                        id="subjectFilter"
+                        class="form-select"
+                        onchange="displayNotes()">
+
+                        <option value="all">
+                            All Subjects
+                        </option>
+
+                        <option value="Programming">
+                            Programming
+                        </option>
+
+                        <option value="Web Development">
+                            Web Development
+                        </option>
+
+                        <option value="Database">
+                            Database
+                        </option>
+
+                        <option value="Artificial Intelligence">
+                            Artificial Intelligence
+                        </option>
+
+                        <option value="Cloud Computing">
+                            Cloud Computing
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="col-lg-2">
+
+                    <div class="text-muted text-center">
+
+                        <i class="fas fa-note-sticky me-1"></i>
+
+                        <span id="noteCount">
+                            0 Notes
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             NOTES
+        ================================================== -->
+
+        <div
+            id="notesContainer"
+            class="row g-4">
+        </div>
+
+
+
+        <!-- =================================================
+             EMPTY STATE
+        ================================================== -->
+
+        <div id="emptyNotes">
+
+            <i class="fas fa-note-sticky"></i>
+
+
+            <h4 class="fw-bold">
+
+                No Notes Found
+
+            </h4>
+
+
+            <p class="text-muted">
+
+                Create your first study note
+                to get started.
+
+            </p>
+
+
+            <button
+                class="btn btn-success"
+                onclick="openAddNoteModal()">
+
+                <i class="fas fa-plus me-2"></i>
+
+                Create Note
+
+            </button>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<!-- =====================================================
+     ADD / EDIT NOTE MODAL
+===================================================== -->
+
+<div
+    class="modal fade"
+    id="noteModal"
+    tabindex="-1">
+
+
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+
+
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+
+
+                <h5
+                    class="modal-title"
+                    id="modalTitle">
+
+                    Add New Note
+
+                </h5>
+
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+
+                </button>
+
+            </div>
+
+
+
+            <div class="modal-body">
+
+
+                <form
+                    id="noteForm"
+                    onsubmit="saveNote(event)">
+
+
+                    <input
+                        type="hidden"
+                        id="editNoteId">
+
+
+                    <!-- Title -->
+
+                    <div class="mb-3">
+
+                        <label
+                            for="noteTitle"
+                            class="form-label fw-semibold">
+
+                            Note Title
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="noteTitle"
+                            class="form-control"
+                            placeholder="Enter note title"
+                            required>
+
+                    </div>
+
+
+
+                    <!-- Subject -->
+
+                    <div class="mb-3">
+
+                        <label
+                            for="noteSubject"
+                            class="form-label fw-semibold">
+
+                            Subject
+
+                        </label>
+
+
+                        <select
+                            id="noteSubject"
+                            class="form-select"
+                            required>
+
+                            <option value="">
+                                Select Subject
+                            </option>
+
+                            <option value="Programming">
+                                Programming
+                            </option>
+
+                            <option value="Web Development">
+                                Web Development
+                            </option>
+
+                            <option value="Database">
+                                Database
+                            </option>
+
+                            <option value="Artificial Intelligence">
+                                Artificial Intelligence
+                            </option>
+
+                            <option value="Cloud Computing">
+                                Cloud Computing
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- Content -->
+
+                    <div class="mb-3">
+
+                        <label
+                            for="noteContent"
+                            class="form-label fw-semibold">
+
+                            Note Content
+
+                        </label>
+
+
+                        <textarea
+                            id="noteContent"
+                            class="form-control"
+                            rows="8"
+                            placeholder="Write your study notes here..."
+                            required>
+                        </textarea>
+
+                    </div>
+
+
+
+                    <!-- Buttons -->
+
+                    <div
+                        class="d-flex justify-content-end gap-2">
+
+
+                        <button
+                            type="button"
+                            class="btn btn-light"
+                            data-bs-dismiss="modal">
+
+                            Cancel
+
+                        </button>
+
+
+                        <button
+                            type="submit"
+                            class="btn btn-success">
+
+                            <i class="fas fa-save me-2"></i>
+
+                            Save Note
+
+                        </button>
+
+                    </div>
+
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     VIEW NOTE MODAL
+===================================================== -->
+
+<div
+    class="modal fade"
+    id="viewNoteModal"
+    tabindex="-1">
+
+
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+
+
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+
+
+                <h5
+                    class="modal-title"
+                    id="viewNoteTitle">
+
+                    Note
+
+                </h5>
+
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+
+                </button>
+
+            </div>
+
+
+            <div class="modal-body">
+
+
+                <div class="mb-3">
+
+                    <span
+                        id="viewNoteSubject"
+                        class="badge bg-success">
+
+                    </span>
+
+                </div>
+
+
+                <p
+                    id="viewNoteDate"
+                    class="text-muted small">
+
+                </p>
+
+
+                <hr>
+
+
+                <div
+                    id="viewNoteContent"
+                    style="white-space: pre-wrap;">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     DELETE CONFIRMATION MODAL
+===================================================== -->
+
+<div
+    class="modal fade"
+    id="deleteModal"
+    tabindex="-1">
+
+
+    <div
+        class="modal-dialog modal-dialog-centered">
+
+
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+
+                    Delete Note
+
+                </h5>
+
+            </div>
+
+
+            <div class="modal-body text-center py-4">
+
+
+                <i
+                    class="fas fa-trash-can text-danger"
+                    style="font-size:3rem;">
+
+                </i>
+
+
+                <h5 class="mt-3">
+
+                    Are you sure?
+
+                </h5>
+
+
+                <p class="text-muted">
+
+                    This note will be permanently
+                    removed from your study space.
+
+                </p>
+
+            </div>
+
+
+            <div
+                class="modal-footer justify-content-center">
+
+
+                <button
+                    type="button"
+                    class="btn btn-light"
+                    data-bs-dismiss="modal">
+
+                    Cancel
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="btn btn-danger"
+                    onclick="confirmDelete()">
+
+                    Delete Note
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="pt-4 pb-3">
+
+    <div class="container">
+
+        <hr>
+
+        <div class="text-center">
+
+            <p class="mb-0">
+
+                © 2026 The Learning Hub.
+                All Rights Reserved.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- Bootstrap -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+
+<script>
+
+/* =====================================================
+   NOTES DATA
+===================================================== */
+
+let notes =
+    JSON.parse(
+        localStorage.getItem("learningHubNotes")
+    ) || [
+
+        {
+            id: 1,
+
+            title: "Java OOP Concepts",
+
+            subject: "Programming",
+
+            content:
+                "Object-Oriented Programming is a programming approach based on classes and objects. Important concepts include encapsulation, inheritance, polymorphism and abstraction.",
+
+            date: "2026-08-10"
+        },
+
+
+        {
+            id: 2,
+
+            title: "HTML Basics",
+
+            subject: "Web Development",
+
+            content:
+                "HTML stands for HyperText Markup Language. It is used to structure content on web pages using elements such as headings, paragraphs, links, images, tables and forms.",
+
+            date: "2026-08-09"
+        },
+
+
+        {
+            id: 3,
+
+            title: "SQL Commands",
+
+            subject: "Database",
+
+            content:
+                "Important SQL commands include SELECT, INSERT, UPDATE and DELETE. CREATE TABLE is used to create a new table and ALTER TABLE is used to modify an existing table.",
+
+            date: "2026-08-08"
+        }
+
+    ];
+
+
+
+/* =====================================================
+   SAVE NOTES
+===================================================== */
+
+function saveNotesToStorage() {
+
+    localStorage.setItem(
+        "learningHubNotes",
+        JSON.stringify(notes)
+    );
+
+}
+
+
+
+/* =====================================================
+   DISPLAY NOTES
+===================================================== */
+
+function displayNotes() {
+
+
+    const container =
+        document.getElementById(
+            "notesContainer"
+        );
+
+
+    const search =
+        document
+        .getElementById("searchNotes")
+        .value
+        .toLowerCase()
+        .trim();
+
+
+    const subject =
+        document.getElementById(
+            "subjectFilter"
+        ).value;
+
+
+    container.innerHTML = "";
+
+
+    const filteredNotes =
+        notes.filter(function(note) {
+
+
+            const matchesSearch =
+
+                note.title
+                .toLowerCase()
+                .includes(search)
+
+                ||
+
+                note.content
+                .toLowerCase()
+                .includes(search);
+
+
+            const matchesSubject =
+
+                subject === "all"
+
+                ||
+
+                note.subject === subject;
+
+
+            return (
+                matchesSearch &&
+                matchesSubject
+            );
+
+        });
+
+
+
+    document.getElementById(
+        "noteCount"
+    ).textContent =
+
+        filteredNotes.length +
+        (
+            filteredNotes.length === 1
+            ? " Note"
+            : " Notes"
+        );
+
+
+
+    if (filteredNotes.length === 0) {
+
+        document.getElementById(
+            "emptyNotes"
+        ).style.display = "block";
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "emptyNotes"
+    ).style.display = "none";
+
+
+
+    filteredNotes.forEach(function(note) {
+
+
+        const column =
+            document.createElement("div");
+
+
+        column.className =
+            "col-lg-4 col-md-6";
+
+
+
+        column.innerHTML = `
+
+            <div class="note-card">
+
+                <div
+                    class="d-flex
+                           justify-content-between
+                           align-items-start
+                           mb-3">
+
+
+                    <div class="note-icon">
+
+                        <i class="fas fa-note-sticky"></i>
+
+                    </div>
+
+
+                    <span
+                        class="badge bg-success-subtle
+                               text-success">
+
+                        ${note.subject}
+
+                    </span>
+
+                </div>
+
+
+                <h5 class="note-title">
+
+                    ${escapeHTML(note.title)}
+
+                </h5>
+
+
+                <p class="note-content">
+
+                    ${escapeHTML(note.content)}
+
+                </p>
+
+
+                <div class="note-date">
+
+                    <i class="far fa-calendar me-1"></i>
+
+                    ${formatDate(note.date)}
+
+                </div>
+
+
+                <div
+                    class="note-actions
+                           d-flex
+                           justify-content-between">
+
+
+                    <button
+                        class="btn btn-sm btn-outline-success"
+                        onclick="viewNote(${note.id})">
+
+                        <i class="fas fa-eye me-1"></i>
+
+                        View
+
+                    </button>
+
+
+                    <div>
+
+                        <button
+                            class="btn btn-sm btn-light me-1"
+                            onclick="editNote(${note.id})">
+
+                            <i class="fas fa-pen"></i>
+
+                        </button>
+
+
+                        <button
+                            class="btn btn-sm btn-light text-danger"
+                            onclick="deleteNote(${note.id})">
+
+                            <i class="fas fa-trash"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        container.appendChild(column);
+
+    });
+
+}
+
+
+
+/* =====================================================
+   ADD NOTE
+===================================================== */
+
+function openAddNoteModal() {
+
+
+    document.getElementById(
+        "modalTitle"
+    ).textContent =
+        "Add New Note";
+
+
+    document.getElementById(
+        "noteForm"
+    ).reset();
+
+
+    document.getElementById(
+        "editNoteId"
+    ).value = "";
+
+
+    const modal =
+        new bootstrap.Modal(
+            document.getElementById(
+                "noteModal"
+            )
+        );
+
+
+    modal.show();
+
+}
+
+
+
+/* =====================================================
+   SAVE / UPDATE NOTE
+===================================================== */
+
+function saveNote(event) {
+
+    event.preventDefault();
+
+
+    const title =
+        document.getElementById(
+            "noteTitle"
+        ).value.trim();
+
+
+    const subject =
+        document.getElementById(
+            "noteSubject"
+        ).value;
+
+
+    const content =
+        document.getElementById(
+            "noteContent"
+        ).value.trim();
+
+
+    const editId =
+        document.getElementById(
+            "editNoteId"
+        ).value;
+
+
+
+    if (!title || !subject || !content) {
+
+        alert(
+            "Please fill in all fields."
+        );
+
+        return;
+
+    }
+
+
+
+    if (editId) {
+
+
+        const note =
+            notes.find(
+                n =>
+                    n.id ===
+                    Number(editId)
+            );
+
+
+        if (note) {
+
+            note.title =
+                title;
+
+            note.subject =
+                subject;
+
+            note.content =
+                content;
+
+            note.date =
+                getTodayDate();
+
+        }
+
+    }
+
+    else {
+
+
+        const newNote = {
+
+            id:
+                Date.now(),
+
+            title:
+                title,
+
+            subject:
+                subject,
+
+            content:
+                content,
+
+            date:
+                getTodayDate()
+
+        };
+
+
+        notes.unshift(
+            newNote
+        );
+
+    }
+
+
+
+    saveNotesToStorage();
+
+
+    displayNotes();
+
+
+    bootstrap.Modal
+        .getInstance(
+            document.getElementById(
+                "noteModal"
+            )
+        )
+        .hide();
+
+}
+
+
+
+/* =====================================================
+   EDIT NOTE
+===================================================== */
+
+function editNote(id) {
+
+
+    const note =
+        notes.find(
+            n => n.id === id
+        );
+
+
+    if (!note) {
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "modalTitle"
+    ).textContent =
+        "Edit Note";
+
+
+    document.getElementById(
+        "editNoteId"
+    ).value =
+        note.id;
+
+
+    document.getElementById(
+        "noteTitle"
+    ).value =
+        note.title;
+
+
+    document.getElementById(
+        "noteSubject"
+    ).value =
+        note.subject;
+
+
+    document.getElementById(
+        "noteContent"
+    ).value =
+        note.content;
+
+
+    const modal =
+        new bootstrap.Modal(
+            document.getElementById(
+                "noteModal"
+            )
+        );
+
+
+    modal.show();
+
+}
+
+
+
+/* =====================================================
+   VIEW NOTE
+===================================================== */
+
+function viewNote(id) {
+
+
+    const note =
+        notes.find(
+            n => n.id === id
+        );
+
+
+    if (!note) {
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "viewNoteTitle"
+    ).textContent =
+        note.title;
+
+
+    document.getElementById(
+        "viewNoteSubject"
+    ).textContent =
+        note.subject;
+
+
+    document.getElementById(
+        "viewNoteDate"
+    ).textContent =
+        "Created / Updated: " +
+        formatDate(note.date);
+
+
+    document.getElementById(
+        "viewNoteContent"
+    ).textContent =
+        note.content;
+
+
+    const modal =
+        new bootstrap.Modal(
+            document.getElementById(
+                "viewNoteModal"
+            )
+        );
+
+
+    modal.show();
+
+}
+
+
+
+/* =====================================================
+   DELETE NOTE
+===================================================== */
+
+let noteToDelete = null;
+
+
+function deleteNote(id) {
+
+    noteToDelete = id;
+
+
+    const modal =
+        new bootstrap.Modal(
+            document.getElementById(
+                "deleteModal"
+            )
+        );
+
+
+    modal.show();
+
+}
+
+
+
+/* =====================================================
+   CONFIRM DELETE
+===================================================== */
+
+function confirmDelete() {
+
+
+    if (noteToDelete === null) {
+
+        return;
+
+    }
+
+
+    notes =
+        notes.filter(
+            note =>
+                note.id !==
+                noteToDelete
+        );
+
+
+    saveNotesToStorage();
+
+
+    displayNotes();
+
+
+    noteToDelete = null;
+
+
+    bootstrap.Modal
+        .getInstance(
+            document.getElementById(
+                "deleteModal"
+            )
+        )
+        .hide();
+
+}
+
+
+
+/* =====================================================
+   DATE
+===================================================== */
+
+function getTodayDate() {
+
+    const date =
+        new Date();
+
+
+    return date
+        .toISOString()
+        .split("T")[0];
+
+}
+
+
+
+function formatDate(dateString) {
+
+    const date =
+        new Date(
+            dateString +
+            "T00:00:00"
+        );
+
+
+    return date.toLocaleDateString(
+        "en-IN",
+        {
+            day: "2-digit",
+            month: "short",
+            year: "numeric"
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   SECURITY
+===================================================== */
+
+function escapeHTML(text) {
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.textContent = text;
+
+
+    return div.innerHTML;
+
+}
+
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+displayNotes();
+
+</script>
+
+
+</body>
+
+</html>

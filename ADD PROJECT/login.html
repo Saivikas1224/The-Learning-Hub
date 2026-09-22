@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Login to The Learning Hub">
+
+    <title>Login | The Learning Hub</title>
+
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+
+    <!-- Main CSS -->
+    <link
+        rel="stylesheet"
+        href="assets/css/style.css">
+
+
+    <style>
+
+        /* =====================================================
+           LOGIN PAGE
+        ===================================================== */
+
+        .login-page {
+            min-height: calc(100vh - 76px);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f7faf8,
+                    #ffffff,
+                    #eef8f3
+                );
+
+            display: flex;
+            align-items: center;
+
+            padding: 60px 0;
+        }
+
+
+        .login-wrapper {
+            max-width: 1050px;
+            margin: auto;
+        }
+
+
+        .login-info {
+            background: #102a43;
+            color: #ffffff;
+
+            min-height: 560px;
+
+            border-radius: 18px 0 0 18px;
+
+            padding: 50px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+
+        .login-info h1 {
+            color: #ffffff;
+            font-size: 2.6rem;
+        }
+
+
+        .login-info p {
+            color: #d4e0dc;
+        }
+
+
+        .login-info-icon {
+            width: 85px;
+            height: 85px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 20px;
+
+            background: rgba(25, 135, 84, 0.2);
+
+            color: #8bd5ac;
+
+            font-size: 2.3rem;
+
+            margin-bottom: 25px;
+        }
+
+
+        .login-benefit {
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+
+            margin-top: 18px;
+        }
+
+
+        .login-benefit i {
+            color: #8bd5ac;
+        }
+
+
+        .login-benefit span {
+            color: #e3eee9;
+        }
+
+
+        .login-card {
+            background: #ffffff;
+
+            min-height: 560px;
+
+            padding: 50px;
+
+            border-radius: 0 18px 18px 0;
+
+            border: 1px solid #e3ebe6;
+
+            box-shadow:
+                0 15px 40px rgba(16, 42, 67, 0.10);
+        }
+
+
+        .login-title {
+            font-weight: 700;
+            color: #102a43;
+        }
+
+
+        .login-subtitle {
+            color: #6c757d;
+        }
+
+
+        .form-label {
+            font-weight: 600;
+            color: #263238;
+        }
+
+
+        .form-control {
+            min-height: 50px;
+
+            border: 1px solid #dce6e0;
+
+            border-radius: 9px;
+
+            padding: 10px 14px;
+        }
+
+
+        .form-control:focus {
+            border-color: #198754;
+
+            box-shadow:
+                0 0 0 0.2rem rgba(25, 135, 84, 0.12);
+        }
+
+
+        .input-group-text {
+            background: #ffffff;
+
+            border-color: #dce6e0;
+
+            color: #198754;
+        }
+
+
+        .password-toggle {
+            cursor: pointer;
+        }
+
+
+        .forgot-link {
+            color: #198754;
+
+            text-decoration: none;
+
+            font-weight: 600;
+        }
+
+
+        .forgot-link:hover {
+            color: #12372a;
+        }
+
+
+        .login-divider {
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            color: #8a9690;
+
+            margin: 25px 0;
+        }
+
+
+        .login-divider::before,
+        .login-divider::after {
+            content: "";
+
+            height: 1px;
+
+            background: #e3ebe6;
+
+            flex: 1;
+        }
+
+
+        .register-link {
+            color: #198754;
+
+            text-decoration: none;
+
+            font-weight: 700;
+        }
+
+
+        .register-link:hover {
+            color: #12372a;
+        }
+
+
+        .secure-login {
+            text-align: center;
+
+            color: #6c757d;
+
+            font-size: 0.85rem;
+
+            margin-top: 20px;
+        }
+
+
+        .secure-login i {
+            color: #198754;
+        }
+
+
+        @media (max-width: 991px) {
+
+            .login-info {
+                border-radius: 18px 18px 0 0;
+
+                min-height: auto;
+
+                padding: 40px;
+            }
+
+
+            .login-card {
+                border-radius: 0 0 18px 18px;
+
+                min-height: auto;
+
+                padding: 40px;
+            }
+
+        }
+
+
+        @media (max-width: 575px) {
+
+            .login-page {
+                padding: 30px 15px;
+            }
+
+
+            .login-info,
+            .login-card {
+                padding: 30px 25px;
+            }
+
+
+            .login-info h1 {
+                font-size: 2rem;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar navbar-expand-lg sticky-top">
+
+    <div class="container">
+
+
+        <a
+            class="navbar-brand"
+            href="index.html">
+
+            <i class="fas fa-graduation-cap"></i>
+
+            The Learning Hub
+
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div
+            class="collapse navbar-collapse"
+            id="mainNavbar">
+
+
+            <ul class="navbar-nav mx-auto">
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="index.html">
+
+                        Home
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="about.html">
+
+                        About
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="index.html#courses">
+
+                        Courses
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="index.html#features">
+
+                        Features
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+
+            <div>
+
+                <a
+                    href="register.html"
+                    class="btn btn-success">
+
+                    Register
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     LOGIN PAGE
+===================================================== -->
+
+<section class="login-page">
+
+
+    <div class="container">
+
+
+        <div class="row login-wrapper g-0">
+
+
+            <!-- =================================================
+                 LEFT INFORMATION
+            ================================================== -->
+
+            <div class="col-lg-6">
+
+
+                <div class="login-info">
+
+
+                    <div class="login-info-icon">
+
+                        <i class="fas fa-graduation-cap"></i>
+
+                    </div>
+
+
+                    <span class="text-uppercase fw-bold"
+                          style="color:#8bd5ac;">
+
+                        Welcome Back
+
+                    </span>
+
+
+                    <h1 class="mt-2 mb-4">
+
+                        Continue your
+                        <span style="color:#8bd5ac;">
+                            learning journey.
+                        </span>
+
+                    </h1>
+
+
+                    <p>
+
+                        Sign in to access your courses,
+                        lessons, notes, quizzes and learning
+                        progress.
+
+                    </p>
+
+
+                    <div class="login-benefit">
+
+                        <i class="fas fa-circle-check"></i>
+
+                        <span>
+                            Access your enrolled courses
+                        </span>
+
+                    </div>
+
+
+                    <div class="login-benefit">
+
+                        <i class="fas fa-circle-check"></i>
+
+                        <span>
+                            Track your learning progress
+                        </span>
+
+                    </div>
+
+
+                    <div class="login-benefit">
+
+                        <i class="fas fa-circle-check"></i>
+
+                        <span>
+                            Take interactive quizzes
+                        </span>
+
+                    </div>
+
+
+                    <div class="login-benefit">
+
+                        <i class="fas fa-circle-check"></i>
+
+                        <span>
+                            Create and manage your notes
+                        </span>
+
+                    </div>
+
+
+                    <div class="login-benefit">
+
+                        <i class="fas fa-circle-check"></i>
+
+                        <span>
+                            Use smart learning tools
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 LOGIN FORM
+            ================================================== -->
+
+            <div class="col-lg-6">
+
+
+                <div class="login-card">
+
+
+                    <div class="text-center mb-4">
+
+
+                        <h2 class="login-title">
+                            Sign In
+                        </h2>
+
+
+                        <p class="login-subtitle mb-0">
+
+                            Login to your Learning Hub account
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- Course message -->
+
+                    <div
+                        id="courseMessage"
+                        class="alert alert-success d-none">
+
+                        <i class="fas fa-book-open me-2"></i>
+
+                        Please login to access the selected course.
+
+                    </div>
+
+
+
+                    <!-- Login Form -->
+
+                    <form
+                        id="loginForm"
+                        onsubmit="handleLogin(event)">
+
+
+                        <!-- Email -->
+
+                        <div class="mb-3">
+
+                            <label
+                                for="email"
+                                class="form-label">
+
+                                Email Address
+
+                            </label>
+
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+
+                                    <i class="fas fa-envelope"></i>
+
+                                </span>
+
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    class="form-control"
+                                    placeholder="Enter your email"
+                                    required>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Password -->
+
+                        <div class="mb-3">
+
+                            <div class="d-flex justify-content-between">
+
+                                <label
+                                    for="password"
+                                    class="form-label">
+
+                                    Password
+
+                                </label>
+
+
+                                <a
+                                    href="#"
+                                    class="forgot-link"
+                                    onclick="forgotPassword(event)">
+
+                                    Forgot Password?
+
+                                </a>
+
+                            </div>
+
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+
+                                    <i class="fas fa-lock"></i>
+
+                                </span>
+
+
+                                <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    class="form-control"
+                                    placeholder="Enter your password"
+                                    required>
+
+
+                                <span
+                                    class="input-group-text password-toggle"
+                                    onclick="togglePassword()">
+
+                                    <i
+                                        id="passwordIcon"
+                                        class="fas fa-eye">
+                                    </i>
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Remember Me -->
+
+                        <div class="form-check mb-4">
+
+                            <input
+                                type="checkbox"
+                                class="form-check-input"
+                                id="rememberMe">
+
+                            <label
+                                class="form-check-label"
+                                for="rememberMe">
+
+                                Remember me
+
+                            </label>
+
+                        </div>
+
+
+
+                        <!-- Login Button -->
+
+                        <button
+                            type="submit"
+                            class="btn btn-success w-100 btn-lg">
+
+                            <i class="fas fa-right-to-bracket me-2"></i>
+
+                            Login
+
+                        </button>
+
+
+                    </form>
+
+
+
+                    <!-- Divider -->
+
+                    <div class="login-divider">
+
+                        OR
+
+                    </div>
+
+
+
+                    <!-- Register -->
+
+                    <div class="text-center">
+
+                        <p class="mb-0">
+
+                            Don't have an account?
+
+                            <a
+                                href="register.html"
+                                class="register-link">
+
+                                Create an account
+
+                            </a>
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- Security -->
+
+                    <div class="secure-login">
+
+                        <i class="fas fa-shield-halved me-1"></i>
+
+                        Your account information is protected.
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="pt-4 pb-3">
+
+
+    <div class="container">
+
+
+        <hr>
+
+
+        <div class="text-center">
+
+            <p class="mb-0">
+
+                © 2026 The Learning Hub.
+                All Rights Reserved.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- Bootstrap -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+
+<!-- =====================================================
+     LOGIN JAVASCRIPT
+===================================================== -->
+
+<script>
+
+    /*
+     * Show selected course message
+     */
+
+    const urlParams =
+        new URLSearchParams(window.location.search);
+
+    const selectedCourse =
+        urlParams.get("course");
+
+
+    if (selectedCourse) {
+
+        const courseMessage =
+            document.getElementById("courseMessage");
+
+        courseMessage.classList.remove("d-none");
+
+        courseMessage.innerHTML =
+            '<i class="fas fa-book-open me-2"></i>' +
+            'Please login to access <strong>' +
+            selectedCourse +
+            '</strong>.';
+
+    }
+
+
+
+    /*
+     * Show / Hide Password
+     */
+
+    function togglePassword() {
+
+        const password =
+            document.getElementById("password");
+
+        const icon =
+            document.getElementById("passwordIcon");
+
+
+        if (password.type === "password") {
+
+            password.type = "text";
+
+            icon.classList.remove("fa-eye");
+
+            icon.classList.add("fa-eye-slash");
+
+        }
+
+        else {
+
+            password.type = "password";
+
+            icon.classList.remove("fa-eye-slash");
+
+            icon.classList.add("fa-eye");
+
+        }
+
+    }
+
+
+
+    /*
+     * Temporary login handler
+     *
+     * Later this will be replaced by PHP + MySQL.
+     */
+
+    function handleLogin(event) {
+
+        event.preventDefault();
+
+
+        const email =
+            document.getElementById("email").value.trim();
+
+        const password =
+            document.getElementById("password").value;
+
+
+        if (email === "" || password === "") {
+
+            alert("Please enter your email and password.");
+
+            return;
+
+        }
+
+
+        /*
+         * Temporary frontend login.
+         *
+         * The real login will be connected to:
+         *
+         * backend/login.php
+         *
+         * after we create the database.
+         */
+
+        sessionStorage.setItem(
+            "learningHubLoggedIn",
+            "true"
+        );
+
+
+        sessionStorage.setItem(
+            "learningHubUser",
+            email
+        );
+
+
+        /*
+         * If a course was selected before login,
+         * send the student directly to that course.
+         */
+
+        if (selectedCourse) {
+
+            window.location.href =
+                "student/courses.php?course=" +
+                encodeURIComponent(selectedCourse);
+
+        }
+
+        else {
+
+            window.location.href =
+                "student/dashboard.php";
+
+        }
+
+    }
+
+
+
+    /*
+     * Forgot Password
+     */
+
+    function forgotPassword(event) {
+
+        event.preventDefault();
+
+
+        alert(
+            "Password recovery will be connected " +
+            "to the PHP backend later."
+        );
+
+    }
+
+</script>
+
+
+</body>
+
+</html>

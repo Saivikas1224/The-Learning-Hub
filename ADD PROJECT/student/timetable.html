@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Timetable | The Learning Hub</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link
+        rel="stylesheet"
+        href="../assets/css/style.css">
+
+
+    <style>
+
+        body {
+            background: #f7faf8;
+        }
+
+        .timetable-page {
+            padding: 40px 0;
+            min-height: 85vh;
+        }
+
+        .page-header,
+        .content-card {
+            background: #ffffff;
+            border: 1px solid #e3ebe6;
+            border-radius: 18px;
+        }
+
+        .page-header {
+            padding: 30px;
+            margin-bottom: 25px;
+        }
+
+        .content-card {
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .page-title {
+            color: #102a43;
+            font-weight: 700;
+        }
+
+        .page-subtitle {
+            color: #6c757d;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #263238;
+        }
+
+        .form-control,
+        .form-select {
+            border-color: #dce6e0;
+            border-radius: 9px;
+            padding: 10px 12px;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: #198754;
+            box-shadow: 0 0 0 0.15rem rgba(25,135,84,.12);
+        }
+
+        .btn-success {
+            background: #198754;
+            border-color: #198754;
+        }
+
+        .btn-success:hover {
+            background: #157347;
+            border-color: #157347;
+        }
+
+        .day-card {
+            background: #ffffff;
+            border: 1px solid #e3ebe6;
+            border-radius: 15px;
+            margin-bottom: 18px;
+            overflow: hidden;
+        }
+
+        .day-header {
+            background: #f1f8f4;
+            padding: 14px 18px;
+            color: #102a43;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .day-header i {
+            color: #198754;
+        }
+
+        .class-item {
+            padding: 16px 18px;
+            border-top: 1px solid #edf1ee;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .class-icon {
+            width: 42px;
+            height: 42px;
+            min-width: 42px;
+            border-radius: 10px;
+            background: #e8f5ee;
+            color: #198754;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .class-name {
+            font-weight: 700;
+            color: #263238;
+        }
+
+        .class-info {
+            font-size: .82rem;
+            color: #6c757d;
+        }
+
+        .class-time {
+            margin-left: auto;
+            text-align: right;
+            color: #198754;
+            font-weight: 600;
+            font-size: .85rem;
+        }
+
+        .empty-day {
+            padding: 25px;
+            text-align: center;
+            color: #8a969c;
+        }
+
+        .summary-box {
+            background: #f7faf8;
+            border: 1px solid #e3ebe6;
+            border-radius: 13px;
+            padding: 18px;
+            text-align: center;
+        }
+
+        .summary-icon {
+            width: 42px;
+            height: 42px;
+            margin: auto;
+            margin-bottom: 8px;
+            background: #e8f5ee;
+            color: #198754;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .summary-number {
+            color: #102a43;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .summary-label {
+            color: #6c757d;
+            font-size: .82rem;
+        }
+
+        @media (max-width: 768px) {
+
+            .timetable-page {
+                padding: 25px 15px;
+            }
+
+            .page-header {
+                padding: 22px;
+            }
+
+            .class-item {
+                align-items: flex-start;
+            }
+
+            .class-time {
+                margin-left: 0;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     NAVBAR
+================================================== -->
+
+<nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
+
+    <div class="container">
+
+        <a
+            class="navbar-brand"
+            href="../index.html">
+
+            <i class="fas fa-graduation-cap text-success"></i>
+
+            The Learning Hub
+
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#timetableNavbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div
+            class="collapse navbar-collapse"
+            id="timetableNavbar">
+
+
+            <ul class="navbar-nav mx-auto">
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="dashboard.html">
+
+                        <i class="fas fa-chart-pie me-1"></i>
+
+                        Dashboard
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="courses.html">
+
+                        <i class="fas fa-book-open me-1"></i>
+
+                        Courses
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="study-plan.html">
+
+                        <i class="fas fa-calendar-check me-1"></i>
+
+                        Study Plan
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link active"
+                        href="timetable.html">
+
+                        <i class="fas fa-table me-1"></i>
+
+                        Timetable
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="notes.html">
+
+                        <i class="fas fa-note-sticky me-1"></i>
+
+                        Notes
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="quiz.html">
+
+                        <i class="fas fa-clipboard-question me-1"></i>
+
+                        Quiz
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="progress.html">
+
+                        <i class="fas fa-chart-line me-1"></i>
+
+                        My Progress
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="ai-assistant.html">
+
+                        <i class="fas fa-robot me-1"></i>
+
+                        AI Assistant
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+
+            <a
+                href="profile.html"
+                class="btn btn-outline-success">
+
+                <i class="fas fa-user me-1"></i>
+
+                Profile
+
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- ==================================================
+     MAIN
+================================================== -->
+
+<main class="timetable-page">
+
+    <div class="container">
+
+
+        <!-- HEADER -->
+
+        <div class="page-header">
+
+            <div
+                class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+
+                <div>
+
+                    <h1 class="page-title mb-2">
+
+                        <i class="fas fa-table text-success me-2"></i>
+
+                        My Timetable
+
+                    </h1>
+
+                    <p class="page-subtitle mb-0">
+
+                        Organize your weekly learning schedule
+                        and never miss a study session.
+
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="dashboard.html"
+                    class="btn btn-outline-success">
+
+                    <i class="fas fa-arrow-left me-1"></i>
+
+                    Dashboard
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SUMMARY -->
+
+        <div class="row g-3 mb-4">
+
+
+            <div class="col-6 col-md-3">
+
+                <div class="summary-box">
+
+                    <div class="summary-icon">
+
+                        <i class="fas fa-calendar-days"></i>
+
+                    </div>
+
+                    <div
+                        class="summary-number"
+                        id="totalClasses">
+
+                        0
+
+                    </div>
+
+                    <div class="summary-label">
+
+                        Total Sessions
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-3">
+
+                <div class="summary-box">
+
+                    <div class="summary-icon">
+
+                        <i class="fas fa-book"></i>
+
+                    </div>
+
+                    <div
+                        class="summary-number"
+                        id="totalSubjects">
+
+                        0
+
+                    </div>
+
+                    <div class="summary-label">
+
+                        Subjects
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-3">
+
+                <div class="summary-box">
+
+                    <div class="summary-icon">
+
+                        <i class="fas fa-clock"></i>
+
+                    </div>
+
+                    <div
+                        class="summary-number"
+                        id="totalHours">
+
+                        0h
+
+                    </div>
+
+                    <div class="summary-label">
+
+                        Weekly Hours
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-3">
+
+                <div class="summary-box">
+
+                    <div class="summary-icon">
+
+                        <i class="fas fa-calendar-day"></i>
+
+                    </div>
+
+                    <div
+                        class="summary-number"
+                        id="todayClasses">
+
+                        0
+
+                    </div>
+
+                    <div class="summary-label">
+
+                        Today's Sessions
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="row g-4">
+
+
+            <!-- ========================================
+                 ADD TIMETABLE ENTRY
+            ========================================= -->
+
+            <div class="col-lg-4">
+
+                <div class="content-card">
+
+                    <h5 class="mb-4">
+
+                        <i class="fas fa-plus-circle text-success me-2"></i>
+
+                        Add Timetable Entry
+
+                    </h5>
+
+
+                    <form id="timetableForm">
+
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+
+                                Subject
+
+                            </label>
+
+                            <select
+                                class="form-select"
+                                id="subject"
+                                required>
+
+                                <option value="">
+
+                                    Select Subject
+
+                                </option>
+
+                                <option>Java Programming</option>
+
+                                <option>Python Programming</option>
+
+                                <option>Web Development</option>
+
+                                <option>Database Management</option>
+
+                                <option>Artificial Intelligence</option>
+
+                                <option>Data Structures</option>
+
+                                <option>Computer Networks</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+
+                                Topic
+
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="topic"
+                                placeholder="Example: Inheritance"
+                                required>
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+
+                                Day
+
+                            </label>
+
+                            <select
+                                class="form-select"
+                                id="day"
+                                required>
+
+                                <option value="">
+
+                                    Select Day
+
+                                </option>
+
+                                <option>Monday</option>
+
+                                <option>Tuesday</option>
+
+                                <option>Wednesday</option>
+
+                                <option>Thursday</option>
+
+                                <option>Friday</option>
+
+                                <option>Saturday</option>
+
+                                <option>Sunday</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="row g-2">
+
+                            <div class="col-6">
+
+                                <label class="form-label">
+
+                                    Start Time
+
+                                </label>
+
+                                <input
+                                    type="time"
+                                    class="form-control"
+                                    id="startTime"
+                                    required>
+
+                            </div>
+
+
+                            <div class="col-6">
+
+                                <label class="form-label">
+
+                                    End Time
+
+                                </label>
+
+                                <input
+                                    type="time"
+                                    class="form-control"
+                                    id="endTime"
+                                    required>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="mb-3 mt-3">
+
+                            <label class="form-label">
+
+                                Location
+
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="location"
+                                placeholder="Example: Home / Library">
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="btn btn-success w-100">
+
+                            <i class="fas fa-plus me-1"></i>
+
+                            Add to Timetable
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ========================================
+                 WEEKLY TIMETABLE
+            ========================================= -->
+
+            <div class="col-lg-8">
+
+                <div class="content-card">
+
+                    <div
+                        class="d-flex justify-content-between
+                        align-items-center flex-wrap gap-2 mb-3">
+
+                        <h5 class="mb-0">
+
+                            <i class="fas fa-calendar-week text-success me-2"></i>
+
+                            Weekly Schedule
+
+                        </h5>
+
+
+                        <button
+                            class="btn btn-sm btn-outline-danger"
+                            onclick="clearTimetable()">
+
+                            <i class="fas fa-trash me-1"></i>
+
+                            Clear All
+
+                        </button>
+
+                    </div>
+
+
+                    <div id="timetableContainer">
+
+                        <!-- Entries added using JavaScript -->
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
+<footer class="pt-4 pb-3">
+
+    <div class="container">
+
+        <hr>
+
+        <p class="text-center mb-0">
+
+            © 2026 The Learning Hub.
+            All Rights Reserved.
+
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
+<script>
+
+
+/* ============================================
+   LOAD TIMETABLE
+============================================ */
+
+let timetable =
+    JSON.parse(
+        localStorage.getItem("learningHubTimetable")
+    ) || [];
+
+
+
+/* ============================================
+   DAYS
+============================================ */
+
+const days = [
+
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday"
+
+];
+
+
+
+/* ============================================
+   ADD ENTRY
+============================================ */
+
+document
+    .getElementById("timetableForm")
+    .addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            const subject =
+                document
+                    .getElementById("subject")
+                    .value;
+
+
+            const topic =
+                document
+                    .getElementById("topic")
+                    .value
+                    .trim();
+
+
+            const day =
+                document
+                    .getElementById("day")
+                    .value;
+
+
+            const startTime =
+                document
+                    .getElementById("startTime")
+                    .value;
+
+
+            const endTime =
+                document
+                    .getElementById("endTime")
+                    .value;
+
+
+            const location =
+                document
+                    .getElementById("location")
+                    .value
+                    .trim();
+
+
+            if (endTime <= startTime) {
+
+                alert(
+                    "End time must be after start time."
+                );
+
+                return;
+
+            }
+
+
+            const entry = {
+
+                id: Date.now(),
+
+                subject: subject,
+
+                topic: topic,
+
+                day: day,
+
+                startTime: startTime,
+
+                endTime: endTime,
+
+                location: location
+
+            };
+
+
+            timetable.push(entry);
+
+
+            saveTimetable();
+
+            renderTimetable();
+
+            updateSummary();
+
+
+            document
+                .getElementById("timetableForm")
+                .reset();
+
+
+            alert(
+                "Timetable entry added successfully!"
+            );
+
+        }
+    );
+
+
+
+/* ============================================
+   SAVE
+============================================ */
+
+function saveTimetable() {
+
+    localStorage.setItem(
+        "learningHubTimetable",
+        JSON.stringify(timetable)
+    );
+
+}
+
+
+
+/* ============================================
+   RENDER
+============================================ */
+
+function renderTimetable() {
+
+    const container =
+        document.getElementById(
+            "timetableContainer"
+        );
+
+
+    let html = "";
+
+
+    days.forEach(
+        day => {
+
+            const entries =
+                timetable
+                    .filter(
+                        item =>
+                            item.day === day
+                    )
+                    .sort(
+                        (a, b) =>
+                            a.startTime
+                                .localeCompare(
+                                    b.startTime
+                                )
+                    );
+
+
+            html += `
+
+                <div class="day-card">
+
+                    <div class="day-header">
+
+                        <span>
+
+                            <i class="fas fa-calendar-day me-2"></i>
+
+                            ${day}
+
+                        </span>
+
+                        <span class="small">
+
+                            ${entries.length}
+                            session${entries.length !== 1 ? "s" : ""}
+
+                        </span>
+
+                    </div>
+
+            `;
+
+
+            if (entries.length === 0) {
+
+                html += `
+
+                    <div class="empty-day">
+
+                        No study sessions planned.
+
+                    </div>
+
+                `;
+
+            }
+
+
+            entries.forEach(
+                entry => {
+
+                    html += `
+
+                        <div class="class-item">
+
+
+                            <div class="class-icon">
+
+                                <i class="fas fa-book-open"></i>
+
+                            </div>
+
+
+                            <div class="flex-grow-1">
+
+                                <div class="class-name">
+
+                                    ${escapeHTML(
+                                        entry.subject
+                                    )}
+
+                                </div>
+
+
+                                <div class="class-info">
+
+                                    <i class="fas fa-bookmark me-1"></i>
+
+                                    ${escapeHTML(
+                                        entry.topic
+                                    )}
+
+                                </div>
+
+
+                                ${
+                                    entry.location
+                                    ?
+                                    `
+                                    <div class="class-info mt-1">
+
+                                        <i class="fas fa-location-dot me-1"></i>
+
+                                        ${escapeHTML(
+                                            entry.location
+                                        )}
+
+                                    </div>
+                                    `
+                                    :
+                                    ""
+                                }
+
+                            </div>
+
+
+                            <div class="class-time">
+
+                                <div>
+
+                                    ${formatTime(
+                                        entry.startTime
+                                    )}
+
+                                    -
+
+                                    ${formatTime(
+                                        entry.endTime
+                                    )}
+
+                                </div>
+
+
+                                <button
+                                    class="btn btn-sm
+                                    btn-outline-danger mt-2"
+                                    onclick="deleteEntry(${entry.id})">
+
+                                    <i class="fas fa-trash"></i>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+                }
+            );
+
+
+            html += `</div>`;
+
+        }
+    );
+
+
+    container.innerHTML = html;
+
+}
+
+
+
+/* ============================================
+   DELETE ENTRY
+============================================ */
+
+function deleteEntry(id) {
+
+    if (
+        !confirm(
+            "Delete this timetable entry?"
+        )
+    ) {
+
+        return;
+
+    }
+
+
+    timetable =
+        timetable.filter(
+            item => item.id !== id
+        );
+
+
+    saveTimetable();
+
+    renderTimetable();
+
+    updateSummary();
+
+}
+
+
+
+/* ============================================
+   CLEAR ALL
+============================================ */
+
+function clearTimetable() {
+
+    if (timetable.length === 0) {
+
+        alert(
+            "Your timetable is already empty."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        !confirm(
+            "Are you sure you want to clear your entire timetable?"
+        )
+    ) {
+
+        return;
+
+    }
+
+
+    timetable = [];
+
+
+    saveTimetable();
+
+    renderTimetable();
+
+    updateSummary();
+
+}
+
+
+
+/* ============================================
+   UPDATE SUMMARY
+============================================ */
+
+function updateSummary() {
+
+    const total =
+        timetable.length;
+
+
+    const subjects =
+        new Set(
+            timetable.map(
+                item => item.subject
+            )
+        ).size;
+
+
+    let totalMinutes = 0;
+
+
+    timetable.forEach(
+        item => {
+
+            const start =
+                timeToMinutes(
+                    item.startTime
+                );
+
+            const end =
+                timeToMinutes(
+                    item.endTime
+                );
+
+
+            if (end > start) {
+
+                totalMinutes +=
+                    end - start;
+
+            }
+
+        }
+    );
+
+
+    const hours =
+        totalMinutes / 60;
+
+
+    const today =
+        new Date()
+            .toLocaleDateString(
+                "en-US",
+                {
+                    weekday: "long"
+                }
+            );
+
+
+    const todayCount =
+        timetable.filter(
+            item =>
+                item.day === today
+        ).length;
+
+
+    document
+        .getElementById("totalClasses")
+        .textContent =
+        total;
+
+
+    document
+        .getElementById("totalSubjects")
+        .textContent =
+        subjects;
+
+
+    document
+        .getElementById("totalHours")
+        .textContent =
+        hours.toFixed(1) + "h";
+
+
+    document
+        .getElementById("todayClasses")
+        .textContent =
+        todayCount;
+
+}
+
+
+
+/* ============================================
+   TIME TO MINUTES
+============================================ */
+
+function timeToMinutes(time) {
+
+    const parts =
+        time.split(":");
+
+
+    return (
+        parseInt(parts[0]) * 60 +
+        parseInt(parts[1])
+    );
+
+}
+
+
+
+/* ============================================
+   FORMAT TIME
+============================================ */
+
+function formatTime(time) {
+
+    const parts =
+        time.split(":");
+
+
+    let hour =
+        parseInt(parts[0]);
+
+
+    const minute =
+        parts[1];
+
+
+    const ampm =
+        hour >= 12
+        ?
+        "PM"
+        :
+        "AM";
+
+
+    hour =
+        hour % 12 || 12;
+
+
+    return (
+        hour +
+        ":" +
+        minute +
+        " " +
+        ampm
+    );
+
+}
+
+
+
+/* ============================================
+   HTML SECURITY
+============================================ */
+
+function escapeHTML(text) {
+
+    return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+
+/* ============================================
+   INITIAL LOAD
+============================================ */
+
+renderTimetable();
+
+updateSummary();
+
+
+</script>
+
+
+</body>
+
+</html>

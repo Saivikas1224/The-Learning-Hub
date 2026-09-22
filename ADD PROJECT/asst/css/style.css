@@ -1,0 +1,936 @@
+/* =========================================================
+   THE LEARNING HUB
+   Main Website Styles
+   Theme: Navy + White + Emerald
+========================================================= */
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+:root {
+    --primary: #12372a;
+    --primary-light: #1f5d45;
+    --green: #198754;
+    --green-light: #e8f5ee;
+
+    --navy: #102a43;
+    --dark: #172b4d;
+
+    --white: #ffffff;
+    --light: #f7faf8;
+    --border: #e3ebe6;
+
+    --text: #263238;
+    --muted: #6c757d;
+
+    --shadow: 0 10px 30px rgba(16, 42, 67, 0.08);
+    --shadow-hover: 0 15px 35px rgba(16, 42, 67, 0.14);
+
+    --radius: 16px;
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--white);
+    color: var(--text);
+    line-height: 1.7;
+    margin: 0;
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--navy);
+    font-weight: 700;
+}
+
+p {
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.04);
+    padding: 14px 0;
+}
+
+.navbar-brand {
+    color: var(--navy) !important;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.navbar-brand i {
+    color: var(--green);
+    margin-right: 7px;
+}
+
+.navbar-nav .nav-link {
+    color: var(--text) !important;
+    font-weight: 500;
+    margin: 0 5px;
+    padding: 8px 12px !important;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--green) !important;
+    background: var(--green-light);
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn {
+    border-radius: 9px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-success {
+    background-color: var(--green);
+    border-color: var(--green);
+}
+
+.btn-success:hover {
+    background-color: #157347;
+    border-color: #157347;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 18px rgba(25, 135, 84, 0.2);
+}
+
+.btn-outline-success {
+    color: var(--green);
+    border-color: var(--green);
+}
+
+.btn-outline-success:hover {
+    background-color: var(--green);
+    border-color: var(--green);
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   HERO SECTION
+========================================================= */
+
+.hero-section {
+    background:
+        linear-gradient(
+            135deg,
+            #f8fbf9 0%,
+            #ffffff 50%,
+            #f1f8f4 100%
+        );
+
+    min-height: 650px;
+
+    display: flex;
+    align-items: center;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.hero-section h1 {
+    color: var(--navy);
+    line-height: 1.15;
+    letter-spacing: -1px;
+}
+
+.hero-section .lead {
+    max-width: 650px;
+    font-size: 1.08rem;
+}
+
+
+/* =========================================================
+   HERO ILLUSTRATION
+========================================================= */
+
+.hero-illustration {
+    position: relative;
+
+    width: 390px;
+    height: 390px;
+
+    max-width: 100%;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e9f6ef,
+            #ffffff
+        );
+
+    border: 1px solid var(--border);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: var(--shadow);
+}
+
+.hero-illustration > i {
+    font-size: 9rem;
+    color: var(--green);
+}
+
+
+/* =========================================================
+   HERO FLOATING CARDS
+========================================================= */
+
+.hero-floating-card {
+    position: absolute;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    padding: 12px 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    font-weight: 600;
+
+    box-shadow: var(--shadow);
+
+    animation: floating 3s ease-in-out infinite;
+}
+
+.hero-floating-card i {
+    font-size: 1.1rem;
+}
+
+.card-one {
+    top: 45px;
+    left: -25px;
+}
+
+.card-two {
+    top: 150px;
+    right: -35px;
+
+    animation-delay: 0.7s;
+}
+
+.card-three {
+    bottom: 50px;
+    left: 10px;
+
+    animation-delay: 1.2s;
+}
+
+
+@keyframes floating {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   SECTION SPACING
+========================================================= */
+
+section {
+    scroll-margin-top: 80px;
+}
+
+
+/* =========================================================
+   ABOUT ILLUSTRATION
+========================================================= */
+
+.about-illustration {
+    min-height: 350px;
+
+    border-radius: var(--radius);
+
+    background:
+        linear-gradient(
+            145deg,
+            #eff8f3,
+            #ffffff
+        );
+
+    border: 1px solid var(--border);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: var(--shadow);
+}
+
+.about-illustration i {
+    font-size: 8rem;
+    color: var(--green);
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    background: var(--white);
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--shadow-hover);
+    border-color: #cfe3d8;
+}
+
+.card-body {
+    padding: 28px;
+}
+
+
+/* =========================================================
+   FEATURE CARDS
+========================================================= */
+
+#features {
+    background: var(--light);
+}
+
+#features .card {
+    height: 100%;
+}
+
+#features .card i {
+    color: var(--green);
+}
+
+#features .card h4 {
+    margin-bottom: 12px;
+}
+
+
+/* =========================================================
+   COURSE CARDS
+========================================================= */
+
+.course-card .card {
+    height: 100%;
+}
+
+.course-icon {
+    height: 150px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 4rem;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.python-icon {
+    background: #eef8f3;
+    color: #198754;
+}
+
+.java-icon {
+    background: #f1f7f4;
+    color: #198754;
+}
+
+.web-icon {
+    background: #edf7f2;
+    color: #198754;
+}
+
+.ai-icon {
+    background: #f0f8f4;
+    color: #198754;
+}
+
+.database-icon {
+    background: #eef7f3;
+    color: #198754;
+}
+
+.cloud-icon {
+    background: #f1f8f4;
+    color: #198754;
+}
+
+
+.course-card .badge {
+    font-weight: 600;
+    padding: 7px 10px;
+    border-radius: 20px;
+}
+
+
+/* =========================================================
+   COURSE SEARCH
+========================================================= */
+
+#courseSearch {
+    height: 55px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px 0 0 10px;
+
+    padding-left: 18px;
+
+    font-size: 1rem;
+}
+
+#courseSearch:focus {
+    border-color: var(--green);
+
+    box-shadow:
+        0 0 0 0.2rem rgba(25, 135, 84, 0.12);
+}
+
+
+/* =========================================================
+   HOW IT WORKS
+========================================================= */
+
+#how-it-works {
+    background: var(--light);
+}
+
+.step-icon {
+    width: 70px;
+    height: 70px;
+
+    border-radius: 50%;
+
+    background: var(--green-light);
+
+    color: var(--green);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 1.5rem;
+
+    border: 1px solid #d4eadc;
+}
+
+#how-it-works h5 {
+    margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   STATISTICS
+========================================================= */
+
+.statistics-section {
+    background: var(--navy);
+}
+
+.stat-card {
+    padding: 20px;
+}
+
+.stat-card i {
+    color: #8bd5ac;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.stat-card h2 {
+    color: var(--white);
+    margin: 5px 0;
+}
+
+.stat-card p {
+    color: #d4e0dc;
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   TESTIMONIALS
+========================================================= */
+
+.text-success {
+    color: var(--green) !important;
+}
+
+
+/* =========================================================
+   COURSE MODAL
+========================================================= */
+
+.course-modal-content {
+    border: none;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.course-modal-header {
+    background: var(--navy);
+    color: var(--white);
+    border-bottom: none;
+}
+
+.course-modal-header .modal-title {
+    color: var(--white);
+}
+
+.course-modal-header .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+
+.course-option {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 14px;
+
+    margin-bottom: 10px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+.course-option:hover {
+    background: var(--green-light);
+
+    border-color: #b9dcc7;
+
+    transform: translateX(4px);
+}
+
+.course-option > i {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: var(--green-light);
+
+    color: var(--green);
+
+    font-size: 1.3rem;
+}
+
+.course-option h5 {
+    margin: 0 0 2px 0;
+    font-size: 1rem;
+}
+
+.course-option p {
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    background: #f5f8f6;
+
+    border-top: 1px solid var(--border);
+}
+
+footer h4,
+footer h5 {
+    color: var(--navy);
+}
+
+footer p {
+    max-width: 500px;
+}
+
+footer a {
+    color: var(--muted);
+
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--green);
+}
+
+
+/* =========================================================
+   SOCIAL LINKS
+========================================================= */
+
+.social-links {
+    display: flex;
+    gap: 10px;
+}
+
+.social-links a {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--green-light);
+
+    color: var(--green);
+
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: var(--green);
+    color: var(--white);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   BADGES
+========================================================= */
+
+.bg-success-subtle {
+    background-color: var(--green-light) !important;
+}
+
+
+/* =========================================================
+   HR
+========================================================= */
+
+footer hr {
+    border-color: var(--border);
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f3;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #9ab9aa;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--green);
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+.card,
+.btn,
+.course-option,
+.nav-link {
+    will-change: transform;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .navbar-nav {
+        margin-top: 15px;
+    }
+
+    .navbar .d-flex {
+        margin-top: 10px;
+    }
+
+    .hero-section {
+        text-align: center;
+        padding-top: 70px !important;
+        padding-bottom: 70px !important;
+    }
+
+    .hero-section .lead {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-illustration {
+        width: 330px;
+        height: 330px;
+        margin-top: 30px;
+    }
+
+    .hero-illustration > i {
+        font-size: 7rem;
+    }
+
+    .card-one {
+        left: -10px;
+    }
+
+    .card-two {
+        right: -10px;
+    }
+
+    .about-illustration {
+        min-height: 280px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    body {
+        font-size: 0.95rem;
+    }
+
+    .hero-section {
+        min-height: auto;
+    }
+
+    .hero-section h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero-section .lead {
+        font-size: 1rem;
+    }
+
+    .hero-illustration {
+        width: 270px;
+        height: 270px;
+    }
+
+    .hero-illustration > i {
+        font-size: 5.5rem;
+    }
+
+    .hero-floating-card {
+        padding: 9px 12px;
+        font-size: 0.8rem;
+    }
+
+    .card-one {
+        left: -5px;
+        top: 25px;
+    }
+
+    .card-two {
+        right: -5px;
+        top: 100px;
+    }
+
+    .card-three {
+        left: 0;
+        bottom: 25px;
+    }
+
+    .about-illustration {
+        min-height: 240px;
+    }
+
+    .about-illustration i {
+        font-size: 6rem;
+    }
+
+    .card-body {
+        padding: 22px;
+    }
+
+    .course-icon {
+        height: 130px;
+    }
+
+    .statistics-section {
+        padding-top: 30px !important;
+        padding-bottom: 30px !important;
+    }
+
+    footer {
+        text-align: center;
+    }
+
+    footer .social-links {
+        justify-content: center;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .hero-section .btn {
+        width: 100%;
+    }
+
+    .hero-illustration {
+        width: 230px;
+        height: 230px;
+    }
+
+    .hero-illustration > i {
+        font-size: 4.5rem;
+    }
+
+    .hero-floating-card {
+        font-size: 0.7rem;
+        padding: 7px 10px;
+    }
+
+    .card-one {
+        left: -8px;
+    }
+
+    .card-two {
+        right: -8px;
+    }
+
+    .card-three {
+        left: -5px;
+    }
+
+    #courseSearch {
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    #courseSearch + button {
+        width: 100%;
+        border-radius: 10px;
+    }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+a:focus,
+button:focus,
+input:focus {
+    outline: none;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 3px solid rgba(25, 135, 84, 0.25);
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Course Learning | The Learning Hub
+    </title>
+
+
+    <!-- Font Awesome -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <!-- Course Learning CSS -->
+
+    <link
+        rel="stylesheet"
+        href="../assets/css/course-learning.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     TOP NAVBAR
+================================================== -->
+
+<header class="course-navbar">
+
+
+    <div class="nav-left">
+
+
+        <button
+            class="back-btn"
+            onclick="goBack()"
+            title="Back to My Courses"
+        >
+
+            <i class="fas fa-arrow-left"></i>
+
+        </button>
+
+
+        <div>
+
+            <div
+                id="courseNavbarTitle"
+                class="nav-course-title"
+            >
+                Course
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="nav-right">
+
+
+        <span
+            id="navbarProgress"
+            class="nav-progress"
+        >
+            0%
+        </span>
+
+
+        <button
+            class="profile-btn"
+            onclick="goToProfile()"
+            title="Profile"
+        >
+
+            <i class="fas fa-user"></i>
+
+        </button>
+
+
+    </div>
+
+
+</header>
+
+
+
+<!-- ==================================================
+     MAIN LEARNING AREA
+================================================== -->
+
+<div class="learning-container">
+
+
+    <!-- ==================================================
+         SIDEBAR
+    ================================================== -->
+
+    <aside class="course-sidebar">
+
+
+        <!-- Course Information -->
+
+        <div class="course-info">
+
+
+            <div
+                id="courseIcon"
+                class="course-icon"
+            >
+
+                <i class="fas fa-book"></i>
+
+            </div>
+
+
+            <h2 id="courseTitle">
+                Course
+            </h2>
+
+
+            <p id="courseDescription">
+                Loading course...
+            </p>
+
+
+        </div>
+
+
+
+        <!-- Progress -->
+
+        <div class="course-progress">
+
+
+            <div class="progress-info">
+
+                <span>
+                    Course Progress
+                </span>
+
+
+                <span id="sidebarProgress">
+                    0%
+                </span>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div
+                    id="courseProgressBar"
+                    class="progress-bar-fill"
+                ></div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- Modules -->
+
+        <div style="margin-top: 25px;">
+
+            <div class="modules-title">
+
+                Course Content
+
+            </div>
+
+
+            <div id="modulesList">
+
+                <!-- JavaScript inserts modules here -->
+
+            </div>
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- ==================================================
+         LESSON AREA
+    ================================================== -->
+
+    <main class="lesson-area">
+
+
+        <!-- Breadcrumb -->
+
+        <div
+            id="lessonBreadcrumb"
+            class="lesson-breadcrumb"
+        >
+
+            Course
+
+        </div>
+
+
+        <!-- Lesson Number -->
+
+        <div
+            id="lessonNumber"
+            class="lesson-number"
+        >
+
+            Lesson 1
+
+        </div>
+
+
+        <!-- Lesson Title -->
+
+        <h1
+            id="lessonTitle"
+            class="lesson-title"
+        >
+
+            Loading Lesson...
+
+        </h1>
+
+
+
+        <!-- Lesson Content -->
+
+        <div
+            id="lessonContent"
+            class="lesson-content"
+        >
+
+
+            <div class="error-message">
+
+                <i class="fas fa-spinner fa-spin"></i>
+
+                <h2>
+                    Loading course...
+                </h2>
+
+                <p>
+                    Please wait while the lesson is loaded.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ==================================================
+             LESSON NAVIGATION
+        ================================================== -->
+
+        <div class="lesson-navigation">
+
+
+            <!-- Previous -->
+
+            <button
+                id="previousBtn"
+                class="nav-lesson-btn"
+                onclick="previousLesson()"
+            >
+
+                <i class="fas fa-arrow-left"></i>
+
+                Previous
+
+            </button>
+
+
+
+            <!-- Complete -->
+
+            <button
+                id="completeBtn"
+                class="complete-btn"
+                onclick="completeLesson()"
+            >
+
+                <i class="fas fa-check"></i>
+
+                Mark as Complete
+
+            </button>
+
+
+
+            <!-- Next -->
+
+            <button
+                id="nextBtn"
+                class="nav-lesson-btn"
+                onclick="nextLesson()"
+            >
+
+                Next
+
+                <i class="fas fa-arrow-right"></i>
+
+            </button>
+
+
+        </div>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
+
+<!-- Course Content -->
+<script src="../assets/js/course-content.js"></script>
+<script src="../assets/js/course-learning.js"></script>
+
+</body>
+
+</html>

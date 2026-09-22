@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Create your account on The Learning Hub">
+
+    <title>Register | The Learning Hub</title>
+
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+
+    <!-- Main CSS -->
+    <link
+        rel="stylesheet"
+        href="assets/css/style.css">
+
+
+    <style>
+
+        /* =====================================================
+           REGISTER PAGE
+        ===================================================== */
+
+        .register-page {
+
+            min-height: calc(100vh - 76px);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f7faf8,
+                    #ffffff,
+                    #eef8f3
+                );
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 50px 0;
+
+        }
+
+
+        .register-wrapper {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+        }
+
+
+        /* =================================================
+           LEFT SIDE
+        ================================================= */
+
+        .register-info {
+
+            background: #102a43;
+
+            color: #ffffff;
+
+            min-height: 650px;
+
+            border-radius: 18px 0 0 18px;
+
+            padding: 50px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+        }
+
+
+        .register-info h1 {
+
+            color: #ffffff;
+
+            font-size: 2.6rem;
+
+        }
+
+
+        .register-info p {
+
+            color: #d4e0dc;
+
+        }
+
+
+        .register-info-icon {
+
+            width: 85px;
+
+            height: 85px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 20px;
+
+            background: rgba(25, 135, 84, 0.2);
+
+            color: #8bd5ac;
+
+            font-size: 2.3rem;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .register-benefit {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin-top: 18px;
+
+        }
+
+
+        .register-benefit i {
+
+            color: #8bd5ac;
+
+        }
+
+
+        .register-benefit span {
+
+            color: #e3eee9;
+
+        }
+
+
+        /* =================================================
+           REGISTER CARD
+        ================================================= */
+
+        .register-card {
+
+            background: #ffffff;
+
+            min-height: 650px;
+
+            padding: 45px;
+
+            border-radius: 0 18px 18px 0;
+
+            border: 1px solid #e3ebe6;
+
+            box-shadow:
+                0 15px 40px rgba(16, 42, 67, 0.10);
+
+        }
+
+
+        .register-title {
+
+            font-weight: 700;
+
+            color: #102a43;
+
+        }
+
+
+        .register-subtitle {
+
+            color: #6c757d;
+
+        }
+
+
+        .form-label {
+
+            font-weight: 600;
+
+            color: #263238;
+
+        }
+
+
+        .form-control {
+
+            min-height: 48px;
+
+            border: 1px solid #dce6e0;
+
+            border-radius: 9px;
+
+        }
+
+
+        .form-control:focus {
+
+            border-color: #198754;
+
+            box-shadow:
+                0 0 0 0.2rem rgba(25, 135, 84, 0.12);
+
+        }
+
+
+        .input-group-text {
+
+            background: #ffffff;
+
+            border-color: #dce6e0;
+
+            color: #198754;
+
+        }
+
+
+        .password-toggle {
+
+            cursor: pointer;
+
+        }
+
+
+        .password-strength {
+
+            height: 5px;
+
+            background: #e9ecef;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+
+            margin-top: 8px;
+
+        }
+
+
+        .password-strength-bar {
+
+            height: 100%;
+
+            width: 0%;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .terms-link {
+
+            color: #198754;
+
+            text-decoration: none;
+
+            font-weight: 600;
+
+        }
+
+
+        .terms-link:hover {
+
+            color: #12372a;
+
+        }
+
+
+        .login-link {
+
+            color: #198754;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+        }
+
+
+        .login-link:hover {
+
+            color: #12372a;
+
+        }
+
+
+        .register-security {
+
+            text-align: center;
+
+            color: #6c757d;
+
+            font-size: 0.85rem;
+
+            margin-top: 18px;
+
+        }
+
+
+        .register-security i {
+
+            color: #198754;
+
+        }
+
+
+        /* =================================================
+           RESPONSIVE
+        ================================================= */
+
+        @media (max-width: 991px) {
+
+            .register-info {
+
+                border-radius: 18px 18px 0 0;
+
+                min-height: auto;
+
+                padding: 40px;
+
+            }
+
+
+            .register-card {
+
+                border-radius: 0 0 18px 18px;
+
+                min-height: auto;
+
+                padding: 40px;
+
+            }
+
+        }
+
+
+        @media (max-width: 575px) {
+
+            .register-page {
+
+                padding: 30px 15px;
+
+            }
+
+
+            .register-info,
+            .register-card {
+
+                padding: 30px 25px;
+
+            }
+
+
+            .register-info h1 {
+
+                font-size: 2rem;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar navbar-expand-lg sticky-top">
+
+    <div class="container">
+
+
+        <a
+            class="navbar-brand"
+            href="index.html">
+
+            <i class="fas fa-graduation-cap"></i>
+
+            The Learning Hub
+
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div
+            class="collapse navbar-collapse"
+            id="mainNavbar">
+
+
+            <ul class="navbar-nav mx-auto">
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="index.html">
+
+                        Home
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="about.html">
+
+                        About
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="index.html#courses">
+
+                        Courses
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="index.html#features">
+
+                        Features
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+
+            <div>
+
+                <a
+                    href="login.html"
+                    class="btn btn-outline-success">
+
+                    Login
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     REGISTER PAGE
+===================================================== -->
+
+<section class="register-page">
+
+
+    <div class="container">
+
+
+        <div class="row register-wrapper g-0">
+
+
+            <!-- =================================================
+                 LEFT INFORMATION
+            ================================================== -->
+
+            <div class="col-lg-5">
+
+
+                <div class="register-info">
+
+
+                    <div class="register-info-icon">
+
+                        <i class="fas fa-user-plus"></i>
+
+                    </div>
+
+
+                    <span
+                        class="fw-bold text-uppercase"
+                        style="color:#8bd5ac;">
+
+                        Join The Learning Hub
+
+                    </span>
+
+
+                    <h1 class="mt-2 mb-4">
+
+                        Start your
+                        <span style="color:#8bd5ac;">
+                            smart learning journey.
+                        </span>
+
+                    </h1>
+
+
+                    <p>
+
+                        Create your account and get access
+                        to a complete learning environment
+                        designed for students.
+
+                    </p>
+
+
+                    <div class="register-benefit">
+
+                        <i class="fas fa-circle-check"></i>
+
+                        <span>
+                            Access learning courses
+                        </span>
+
+                    </div>
+
+
+                    <div class="register-benefit">
+
+                        <i class="fas fa-circle-check"></i>
+
+                        <span>
+                            Create and manage notes
+                        </span>
+
+                    </div>
+
+
+                    <div class="register-benefit">
+
+                        <i class="fas fa-circle-check"></i>
+
+                        <span>
+                            Practice with quizzes
+                        </span>
+
+                    </div>
+
+
+                    <div class="register-benefit">
+
+                        <i class="fas fa-circle-check"></i>
+
+                        <span>
+                            Track your progress
+                        </span>
+
+                    </div>
+
+
+                    <div class="register-benefit">
+
+                        <i class="fas fa-circle-check"></i>
+
+                        <span>
+                            Build your learning profile
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 REGISTRATION FORM
+            ================================================== -->
+
+            <div class="col-lg-7">
+
+
+                <div class="register-card">
+
+
+                    <div class="text-center mb-4">
+
+
+                        <h2 class="register-title">
+
+                            Create Account
+
+                        </h2>
+
+
+                        <p class="register-subtitle mb-0">
+
+                            Fill in your details to get started
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- Registration Form -->
+
+                    <form
+                        id="registerForm"
+                        onsubmit="handleRegister(event)">
+
+
+                        <div class="row">
+
+
+                            <!-- First Name -->
+
+                            <div class="col-md-6 mb-3">
+
+                                <label
+                                    for="firstName"
+                                    class="form-label">
+
+                                    First Name
+
+                                </label>
+
+
+                                <div class="input-group">
+
+                                    <span class="input-group-text">
+
+                                        <i class="fas fa-user"></i>
+
+                                    </span>
+
+
+                                    <input
+                                        type="text"
+                                        id="firstName"
+                                        name="firstName"
+                                        class="form-control"
+                                        placeholder="Enter first name"
+                                        required>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- Last Name -->
+
+                            <div class="col-md-6 mb-3">
+
+                                <label
+                                    for="lastName"
+                                    class="form-label">
+
+                                    Last Name
+
+                                </label>
+
+
+                                <div class="input-group">
+
+                                    <span class="input-group-text">
+
+                                        <i class="fas fa-user"></i>
+
+                                    </span>
+
+
+                                    <input
+                                        type="text"
+                                        id="lastName"
+                                        name="lastName"
+                                        class="form-control"
+                                        placeholder="Enter last name"
+                                        required>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Email -->
+
+                        <div class="mb-3">
+
+                            <label
+                                for="email"
+                                class="form-label">
+
+                                Email Address
+
+                            </label>
+
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+
+                                    <i class="fas fa-envelope"></i>
+
+                                </span>
+
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    class="form-control"
+                                    placeholder="Enter your email address"
+                                    required>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Phone -->
+
+                        <div class="mb-3">
+
+                            <label
+                                for="phone"
+                                class="form-label">
+
+                                Phone Number
+
+                            </label>
+
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+
+                                    <i class="fas fa-phone"></i>
+
+                                </span>
+
+
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    class="form-control"
+                                    placeholder="Enter your phone number"
+                                    pattern="[0-9]{10}"
+                                    maxlength="10"
+                                    required>
+
+                            </div>
+
+
+                            <small class="text-muted">
+
+                                Enter a 10-digit mobile number.
+
+                            </small>
+
+                        </div>
+
+
+
+                        <!-- Password -->
+
+                        <div class="mb-3">
+
+                            <label
+                                for="password"
+                                class="form-label">
+
+                                Password
+
+                            </label>
+
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+
+                                    <i class="fas fa-lock"></i>
+
+                                </span>
+
+
+                                <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    class="form-control"
+                                    placeholder="Create a password"
+                                    required
+                                    oninput="checkPasswordStrength()">
+
+
+                                <span
+                                    class="input-group-text password-toggle"
+                                    onclick="togglePassword(
+                                        'password',
+                                        'passwordIcon'
+                                    )">
+
+                                    <i
+                                        id="passwordIcon"
+                                        class="fas fa-eye">
+                                    </i>
+
+                                </span>
+
+                            </div>
+
+
+                            <div class="password-strength">
+
+                                <div
+                                    id="strengthBar"
+                                    class="password-strength-bar">
+                                </div>
+
+                            </div>
+
+
+                            <small
+                                id="passwordMessage"
+                                class="text-muted">
+
+                                Use at least 8 characters.
+
+                            </small>
+
+                        </div>
+
+
+
+                        <!-- Confirm Password -->
+
+                        <div class="mb-3">
+
+                            <label
+                                for="confirmPassword"
+                                class="form-label">
+
+                                Confirm Password
+
+                            </label>
+
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+
+                                    <i class="fas fa-lock"></i>
+
+                                </span>
+
+
+                                <input
+                                    type="password"
+                                    id="confirmPassword"
+                                    name="confirmPassword"
+                                    class="form-control"
+                                    placeholder="Confirm your password"
+                                    required>
+
+
+                                <span
+                                    class="input-group-text password-toggle"
+                                    onclick="togglePassword(
+                                        'confirmPassword',
+                                        'confirmPasswordIcon'
+                                    )">
+
+                                    <i
+                                        id="confirmPasswordIcon"
+                                        class="fas fa-eye">
+                                    </i>
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Terms -->
+
+                        <div class="form-check mb-4">
+
+                            <input
+                                type="checkbox"
+                                class="form-check-input"
+                                id="terms"
+                                required>
+
+
+                            <label
+                                class="form-check-label"
+                                for="terms">
+
+                                I agree to the
+
+                                <a
+                                    href="#"
+                                    class="terms-link">
+
+                                    Terms & Conditions
+
+                                </a>
+
+                                and
+
+                                <a
+                                    href="#"
+                                    class="terms-link">
+
+                                    Privacy Policy
+
+                                </a>
+
+                            </label>
+
+                        </div>
+
+
+
+                        <!-- Register Button -->
+
+                        <button
+                            type="submit"
+                            class="btn btn-success btn-lg w-100">
+
+                            <i class="fas fa-user-plus me-2"></i>
+
+                            Create Account
+
+                        </button>
+
+
+                    </form>
+
+
+
+                    <!-- Login -->
+
+                    <div class="text-center mt-4">
+
+                        <p class="mb-0">
+
+                            Already have an account?
+
+                            <a
+                                href="login.html"
+                                class="login-link">
+
+                                Login here
+
+                            </a>
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- Security -->
+
+                    <div class="register-security">
+
+                        <i class="fas fa-shield-halved me-1"></i>
+
+                        Your information will be securely stored.
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="pt-4 pb-3">
+
+    <div class="container">
+
+        <hr>
+
+        <div class="text-center">
+
+            <p class="mb-0">
+
+                © 2026 The Learning Hub.
+                All Rights Reserved.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- Bootstrap JavaScript -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+
+<!-- =====================================================
+     REGISTER JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   PASSWORD VISIBILITY
+===================================================== */
+
+function togglePassword(inputId, iconId) {
+
+    const input =
+        document.getElementById(inputId);
+
+    const icon =
+        document.getElementById(iconId);
+
+
+    if (input.type === "password") {
+
+        input.type = "text";
+
+        icon.classList.remove("fa-eye");
+
+        icon.classList.add("fa-eye-slash");
+
+    }
+
+    else {
+
+        input.type = "password";
+
+        icon.classList.remove("fa-eye-slash");
+
+        icon.classList.add("fa-eye");
+
+    }
+
+}
+
+
+
+/* =====================================================
+   PASSWORD STRENGTH
+===================================================== */
+
+function checkPasswordStrength() {
+
+    const password =
+        document.getElementById("password").value;
+
+    const strengthBar =
+        document.getElementById("strengthBar");
+
+    const message =
+        document.getElementById("passwordMessage");
+
+
+    let strength = 0;
+
+
+    if (password.length >= 8) {
+
+        strength++;
+
+    }
+
+
+    if (/[A-Z]/.test(password)) {
+
+        strength++;
+
+    }
+
+
+    if (/[0-9]/.test(password)) {
+
+        strength++;
+
+    }
+
+
+    if (/[^A-Za-z0-9]/.test(password)) {
+
+        strength++;
+
+    }
+
+
+    if (password.length === 0) {
+
+        strengthBar.style.width = "0%";
+
+        message.textContent =
+            "Use at least 8 characters.";
+
+        return;
+
+    }
+
+
+    if (strength === 1) {
+
+        strengthBar.style.width = "25%";
+
+        strengthBar.style.background = "#dc3545";
+
+        message.textContent =
+            "Weak password.";
+
+    }
+
+    else if (strength === 2) {
+
+        strengthBar.style.width = "50%";
+
+        strengthBar.style.background = "#ffc107";
+
+        message.textContent =
+            "Moderate password.";
+
+    }
+
+    else if (strength === 3) {
+
+        strengthBar.style.width = "75%";
+
+        strengthBar.style.background = "#20c997";
+
+        message.textContent =
+            "Good password.";
+
+    }
+
+    else {
+
+        strengthBar.style.width = "100%";
+
+        strengthBar.style.background = "#198754";
+
+        message.textContent =
+            "Strong password.";
+
+    }
+
+}
+
+
+
+/* =====================================================
+   REGISTRATION
+===================================================== */
+
+function handleRegister(event) {
+
+    event.preventDefault();
+
+
+    const firstName =
+        document.getElementById("firstName").value.trim();
+
+
+    const lastName =
+        document.getElementById("lastName").value.trim();
+
+
+    const email =
+        document.getElementById("email").value.trim();
+
+
+    const phone =
+        document.getElementById("phone").value.trim();
+
+
+    const password =
+        document.getElementById("password").value;
+
+
+    const confirmPassword =
+        document.getElementById("confirmPassword").value;
+
+
+    const terms =
+        document.getElementById("terms").checked;
+
+
+
+    /* Password validation */
+
+    if (password.length < 8) {
+
+        alert(
+            "Password must contain at least 8 characters."
+        );
+
+        return;
+
+    }
+
+
+
+    /* Confirm password */
+
+    if (password !== confirmPassword) {
+
+        alert(
+            "Password and confirm password do not match."
+        );
+
+        return;
+
+    }
+
+
+
+    /* Terms */
+
+    if (!terms) {
+
+        alert(
+            "Please accept the Terms & Conditions."
+        );
+
+        return;
+
+    }
+
+
+
+    /*
+     * Temporary frontend registration.
+     *
+     * This will later be connected to:
+     *
+     * XAMPP
+     * PHP
+     * MySQL
+     *
+     * The user's information will then be stored
+     * in the database.
+     */
+
+
+    const user = {
+
+        firstName: firstName,
+
+        lastName: lastName,
+
+        email: email,
+
+        phone: phone
+
+    };
+
+
+    sessionStorage.setItem(
+        "learningHubUser",
+        JSON.stringify(user)
+    );
+
+
+    sessionStorage.setItem(
+        "learningHubLoggedIn",
+        "true"
+    );
+
+
+
+    alert(
+        "Account created successfully!"
+    );
+
+
+    window.location.href =
+        "student/dashboard.html";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
